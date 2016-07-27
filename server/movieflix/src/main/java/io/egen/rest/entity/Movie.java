@@ -5,11 +5,12 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table
 public class Movie {
@@ -37,8 +38,11 @@ public class Movie {
 	@OneToMany
 	private List<Cast> cast;
 	
-	@OneToMany
+	@ManyToMany
 	private List<Genre> genre;
+	
+	@ManyToMany
+	private List<Awards> awards;
 
 	public String getId() {
 		return id;
@@ -160,15 +164,22 @@ public class Movie {
 		this.genre = genre;
 	}
 
+	public List<Awards> getAwards() {
+		return awards;
+	}
+
+	public void setAwards(List<Awards> awards) {
+		this.awards = awards;
+	}
+
 	@Override
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", rated=" + rated + ", released=" + released
 				+ ", runtime=" + runtime + ", plot=" + plot + ", language=" + language + ", country=" + country
 				+ ", poster=" + poster + ", metascore=" + metascore + ", type=" + type + ", imdb=" + imdb + ", cast="
-				+ cast + ", genre=" + genre + "]";
+				+ cast + ", genre=" + genre + ", awards=" + awards + "]";
 	}
+
 	
 	
-
-
 }
