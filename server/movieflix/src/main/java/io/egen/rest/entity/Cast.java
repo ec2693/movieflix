@@ -3,6 +3,8 @@ package io.egen.rest.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -15,42 +17,42 @@ public class Cast {
 	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator ="customUUID")
-	private String id;
+	private String castId;
 	
-	private String name;
+	private String castName;
 	
-	private CastType type;
+	private String castType;
 
-	
-
-	public String getId() {
-		return id;
+	public String getCastId() {
+		return castId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCastId(String castId) {
+		this.castId = castId;
 	}
 
-	public String getName() {
-		return name;
+	public String getCastName() {
+		return castName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCastName(String castName) {
+		this.castName = castName;
 	}
 
-	public CastType getType() {
-		return type;
+	public String getCastType() {
+		return castType;
 	}
 
-	public void setType(CastType type) {
-		this.type = type;
+	public void setCastType(String castType) {
+		this.castType = castType;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Cast [id=" + id + ", name=" + name + ", type=" + type + "]";
+		return "Cast [castId=" + castId + ", castNname=" + castName + ", castType=" + castType + "]";
 	}
 
+	
 
+	
 }

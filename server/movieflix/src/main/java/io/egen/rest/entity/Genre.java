@@ -14,14 +14,14 @@ public class Genre {
 	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator ="customUUID")
-	private String id;
+	private String genreId;
 	private String genreType;
 	
-	public String getId() {
-		return id;
+	public String getGenreId() {
+		return genreId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String genreId) {
+		this.genreId = genreId;
 	}
 	public String getGenreType() {
 		return genreType;
@@ -31,7 +31,7 @@ public class Genre {
 	}
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", genreType=" + genreType + "]";
+		return "Genre [id=" + genreId + ", genreType=" + genreType + "]";
 	}
 	
 	

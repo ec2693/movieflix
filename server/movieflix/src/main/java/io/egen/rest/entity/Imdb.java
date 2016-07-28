@@ -16,32 +16,38 @@ public class Imdb {
 	@GeneratedValue(generator ="customUUID")
 	private String id;
 	
-	private int rating;
-	private int votes;
+	private String imdbId;
+	private int imdbRating;
+	private int imdbVotes;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getRating() {
-		return rating;
+	public String getImdbId() {
+		return imdbId;
 	}
-	
-	public void setRating(int rating) {
-		this.rating = rating;
+	public void setImdbId(String imdbId) {
+		this.imdbId = imdbId;
 	}
-	public int getVotes() {
-		return votes;
+	public int getImdbRating() {
+		return imdbRating;
 	}
-	public void setVotes(int votes) {
-		this.votes = votes;
+	public void setImdbRating(int imdbRating) {
+		this.imdbRating = imdbRating;
 	}
-	
+	public int getImdbVotes() {
+		return imdbVotes;
+	}
+	public void setImdbVotes(int imdbVotes) {
+		this.imdbVotes = imdbVotes;
+	}
 	@Override
 	public String toString() {
-		return "Imdb [id=" + id + ", rating=" + rating + ", votes=" + votes + "]";
+		return "Imdb [id=" + id + ", imdbId=" + imdbId + ", imdbRating=" + imdbRating + ", imdbVotes=" + imdbVotes
+				+ "]";
 	}
 	
-
+	
 }

@@ -14,29 +14,29 @@ public class Awards {
 	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator ="customUUID")
-	private String id;
+	private String awardId;
 	
-	private String award;
+	private String awardName;
 
-	public String getId() {
-		return id;
+	public String getAwardId() {
+		return awardId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String awardId) {
+		this.awardId = awardId;
 	}
 
-	public String getAward() {
-		return award;
+	public String getAwardName() {
+		return awardName;
 	}
 
-	public void setAward(String award) {
-		this.award = award;
+	public void setAwardName(String awardName) {
+		this.awardName = awardName;
 	}
 
 	@Override
 	public String toString() {
-		return "Awards [id=" + id + ", award=" + award + "]";
+		return "Awards [id=" + awardId + ", award=" + awardName + "]";
 	}
 	  
 	

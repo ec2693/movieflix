@@ -2,10 +2,13 @@ package io.egen.rest.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -13,6 +16,14 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
+@NamedQueries({
+	@NamedQuery(name = "Movie.findAll",query = "SELECT m FROM Movie m ORDER BY m.title ASC"),
+	@NamedQuery(name = "Movie.findByTitle",query = "SELECT m FROM Movie m WHERE m.title=:pTitle"),
+	@NamedQuery(name = "Movie.findALLByType",query = "SELECT m FROM Movie m WHERE m.type=:pType"),
+	@NamedQuery(name = "Movie.findAllByYear",query = "SELECT m FROM Movie m WHERE m.year=:pYear"),
+	@NamedQuery(name = "Movie.sortAllByYear",query = "SELECT m FROM Movie m ORDER BY m.year DESC"),
+	
+})
 public class Movie {
 	
 	@Id
@@ -20,8 +31,10 @@ public class Movie {
 	@GeneratedValue(generator ="customUUID")
 	private String id;
 	
+	@Column(unique = true)
 	private String title;
-	private String year;
+	
+	private int year;
 	private String rated;
 	private String released;
 	private String runtime;
@@ -60,11 +73,11 @@ public class Movie {
 		this.title = title;
 	}
 
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 
