@@ -1,12 +1,9 @@
 package io.egen.rest.repository;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
-
 import io.egen.rest.entity.Cast;
 
 @Repository
@@ -17,8 +14,9 @@ public class CastRepositoryImp implements CastRepository {
 	private EntityManager em;
 	
 	@Override
-	public List<Cast> getCast(String movieId) {
-		return null;
+	public Cast getCast(String castId) {
+		return em.find(Cast.class, castId);
+		
 	}
 
 	@Override
@@ -36,10 +34,13 @@ public class CastRepositoryImp implements CastRepository {
 		}
 		return cast;
 	}
+	
 
-//	@Override
-//	public void deleteCast(Cast cast) {
-//		em.remove(cast);
-//	}
+	@Override
+	public void deleteCast(List<Cast> cast) {
+		for(Cast casts: cast){
+			em.remove(casts);
+		}
+	}
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import io.egen.rest.entity.Movie;
+import io.egen.rest.exception.MovieDoesNotExistsException;
 
 @Repository
 public class MovieRepositoryImp implements MovieRepository{
@@ -33,8 +34,11 @@ public class MovieRepositoryImp implements MovieRepository{
 		List<Movie> movies = query.getResultList();
 		if (movies != null && movies.size() == 1) {
 			return movies.get(0);
-		}		
-		return null;
+		}
+		else{
+			throw new MovieDoesNotExistsException("Movie with tite  "+title+"  doesn't exists");
+		}
+		
 	}
 
 	@Override
@@ -66,7 +70,8 @@ public class MovieRepositoryImp implements MovieRepository{
 
 	@Override
 	public Movie updateMovie(Movie movie) {
-		return em.merge(movie);
+		 em.merge(movie);
+		 return movie;
 	}
 
 	@Override
@@ -75,6 +80,8 @@ public class MovieRepositoryImp implements MovieRepository{
 		
 		
 	}
+
+	
 
 	
 

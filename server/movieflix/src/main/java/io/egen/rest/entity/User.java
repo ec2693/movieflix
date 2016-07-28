@@ -4,12 +4,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
+
+@NamedQueries({
+	@NamedQuery(name = "User.find",query = "SELECT u FROM User u WHERE u.userName = :pUserName  AND u.password = :pPassword"),
+	@NamedQuery(name = "User.findUserByUserName",query = "SELECT u FROM User u  WHERE u.userName =:pUserName")
+})
 public class User {
 	
 	@Id
@@ -22,7 +29,7 @@ public class User {
 
 	
 	@Column(unique = true)
-	private String Username;
+	private String userName;
 	
 	@Column(unique = true)
 	private String email;
@@ -53,12 +60,12 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getUsername() {
-		return Username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		Username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmail() {
@@ -79,7 +86,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", Username=" + Username
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", UserName=" + userName
 				+ ", email=" + email + ", password=" + password + "]";
 	}
     

@@ -15,6 +15,7 @@ public class Genre {
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator ="customUUID")
 	private String genreId;
+	
 	private String genreType;
 	
 	public String getGenreId() {

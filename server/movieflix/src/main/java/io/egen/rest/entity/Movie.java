@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
@@ -22,7 +21,6 @@ import org.hibernate.annotations.GenericGenerator;
 	@NamedQuery(name = "Movie.findALLByType",query = "SELECT m FROM Movie m WHERE m.type=:pType"),
 	@NamedQuery(name = "Movie.findAllByYear",query = "SELECT m FROM Movie m WHERE m.year=:pYear"),
 	@NamedQuery(name = "Movie.sortAllByYear",query = "SELECT m FROM Movie m ORDER BY m.year DESC"),
-	
 })
 public class Movie {
 	
@@ -41,6 +39,7 @@ public class Movie {
 	private String plot;
 	private String language;
 	private String country;
+	private String award;
 	private String poster;
 	private int metascore;
 	private String type;
@@ -48,14 +47,12 @@ public class Movie {
 	@OneToOne
 	private Imdb imdb;
 
-	@OneToMany
+	@ManyToMany
 	private List<Cast> cast;
 	
 	@ManyToMany
 	private List<Genre> genre;
 	
-	@ManyToMany
-	private List<Awards> awards;
 
 	public String getId() {
 		return id;
@@ -177,12 +174,12 @@ public class Movie {
 		this.genre = genre;
 	}
 
-	public List<Awards> getAwards() {
-		return awards;
+	public String getAward() {
+		return award;
 	}
 
-	public void setAwards(List<Awards> awards) {
-		this.awards = awards;
+	public void setAward(String award) {
+		this.award = award;
 	}
 
 	@Override
@@ -190,7 +187,7 @@ public class Movie {
 		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", rated=" + rated + ", released=" + released
 				+ ", runtime=" + runtime + ", plot=" + plot + ", language=" + language + ", country=" + country
 				+ ", poster=" + poster + ", metascore=" + metascore + ", type=" + type + ", imdb=" + imdb + ", cast="
-				+ cast + ", genre=" + genre + ", awards=" + awards + "]";
+				+ cast + ", genre=" + genre + ", awards=" + award + "]";
 	}
 
 	

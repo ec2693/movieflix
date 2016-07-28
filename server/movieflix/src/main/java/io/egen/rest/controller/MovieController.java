@@ -56,7 +56,7 @@ public class MovieController {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT,path = "{id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie updateMovie(@PathVariable("year") String movieId, @RequestBody Movie movie){
+	public Movie updateMovie(@PathVariable("id") String movieId, @RequestBody Movie movie){
 		return service.updateMovie(movieId, movie);
 	}
 	

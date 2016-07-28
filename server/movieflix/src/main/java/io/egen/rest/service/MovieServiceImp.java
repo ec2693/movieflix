@@ -1,17 +1,16 @@
 package io.egen.rest.service;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import io.egen.rest.entity.Cast;
+import io.egen.rest.entity.Genre;
+import io.egen.rest.entity.Imdb;
 import io.egen.rest.entity.Movie;
 import io.egen.rest.exception.MovieAlreadyExistsException;
 import io.egen.rest.exception.MovieDoesNotExistsException;
-import io.egen.rest.repository.CastRepository;
 import io.egen.rest.repository.MovieRepository;
 
 @Service
@@ -22,6 +21,12 @@ public class MovieServiceImp implements MovieService {
 	
 	@Autowired
 	CastService cService;
+	
+	@Autowired
+	ImdbService iService;
+	
+	@Autowired
+	GenreService gService;
 
 	@Override
 	public List<Movie> findAll() {
@@ -70,6 +75,10 @@ public class MovieServiceImp implements MovieService {
 		}
 		 List<Cast> cast = movie.getCast();
 			 cService.createCast(cast);
+		 Imdb imdb = movie.getImdb();
+		    iService.createImdb(imdb);
+		 List<Genre> genre = movie.getGenre();
+		    gService .createGenre(genre); 
 		return repository.createMovie(movie);
 	}
 
@@ -81,7 +90,11 @@ public class MovieServiceImp implements MovieService {
 			 throw new MovieDoesNotExistsException("Movie with id  "+movieId+ "  doesn't exists");
 		 }
 		 List<Cast> cast = movie.getCast();
-		 cService.updateCast(cast);
+		   cService.updateCast(cast);
+		 Imdb imdb = movie.getImdb();
+		   iService.updateImdb(imdb);
+		List<Genre> genre = movie.getGenre();
+		  gService.updateGenre(genre);
 		return repository.updateMovie(movie);
 	}
 
@@ -92,8 +105,16 @@ public class MovieServiceImp implements MovieService {
 		 if(existing == null){
 			 throw new MovieDoesNotExistsException("Movie with id  "+movieId+ "  doesn't exists");
 		 }
-		repository.deleteMovie(existing);
+		 List<Cast> cast = existing.getCast();
+		     cService.deleteCast(cast);
+		 Imdb imdb = existing.getImdb();
+		    iService.deleteImdb(imdb);
+		 List<Genre> genre = existing.getGenre();
+			gService.deleteGenre(genre);
+		  repository.deleteMovie(existing);
 		
 	}
+
+	
 
 }

@@ -1,7 +1,6 @@
 package io.egen.rest.repository;
 
 import java.util.List;
-
 import io.egen.rest.entity.Movie;
 
 public interface MovieRepository {
