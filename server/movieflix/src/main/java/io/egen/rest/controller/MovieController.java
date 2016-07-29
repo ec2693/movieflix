@@ -25,12 +25,12 @@ public class MovieController {
 		return service.findAll();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET,path = "findbyId/{id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET,path = "findById/{id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie findById(@PathVariable("id") String movieId){
 		return service.findById(movieId);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "findbyTitle/{name}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET, path = "findByTitle/{name}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie findByTitle(@PathVariable("name") String title){
 		return service.findByTitle(title);
 	}

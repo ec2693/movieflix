@@ -1,5 +1,7 @@
 package io.egen.rest.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -11,6 +13,14 @@ public class UserRepositoryImp  implements UserRepository{
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Override
+	public List<User> findAllUser(){
+		TypedQuery<User> query = em.createNamedQuery("User.findAllUser", User.class);
+		query.setParameter("pRole", "USER");
+		return query.getResultList();
+		
+	}
 
 	@Override
 	public User getUser(String userName, String password) {
@@ -35,6 +45,7 @@ public class UserRepositoryImp  implements UserRepository{
 
 	@Override
 	public User createUser(User user) {
+		user.setRole("USER");
 		 em.persist(user);
 		 return user;
 		

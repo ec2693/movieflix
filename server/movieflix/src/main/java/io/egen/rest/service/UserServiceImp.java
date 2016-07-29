@@ -1,5 +1,7 @@
 package io.egen.rest.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,14 +15,31 @@ public class UserServiceImp implements UserService {
 	
      @Autowired
 	 UserRepository repository;
+     
+     @Override
+ 	public List< User> findAllUser(){
+    	 return repository.findAllUser();
+     }
+     
+     
 	 
-	@Override
+     @Override
 	public User getUser(String userName, String password) {
 		User existing = repository.getUser(userName,password);
 		if(existing == null){
 			throw new UserDoesNotExistsException("User with username"  +userName+"   and password"+password+"  doesn't exixts");
 		}
 		return existing;
+	}
+     @Override
+	public boolean authUser(User user){
+    	 User existing = repository.getUser(user.getUserName(),user.getPassword());
+    	 if(existing != null){
+    		 return true;
+    	 }
+    	 return false;
+    	 
+		
 	}
 
 	@Override

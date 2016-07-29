@@ -1,9 +1,9 @@
 package io.egen.rest.entity;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -12,13 +12,17 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+
 
 @Entity
 @Table
 @NamedQueries({
 	@NamedQuery(name = "Movie.findAll",query = "SELECT m FROM Movie m ORDER BY m.title ASC"),
 	@NamedQuery(name = "Movie.findByTitle",query = "SELECT m FROM Movie m WHERE m.title=:pTitle"),
-	@NamedQuery(name = "Movie.findALLByType",query = "SELECT m FROM Movie m WHERE m.type=:pType"),
+	@NamedQuery(name = "Movie.findAllByType",query = "SELECT m FROM Movie m WHERE m.type=:pType"),
 	@NamedQuery(name = "Movie.findAllByYear",query = "SELECT m FROM Movie m WHERE m.year=:pYear"),
 	@NamedQuery(name = "Movie.sortAllByYear",query = "SELECT m FROM Movie m ORDER BY m.year DESC"),
 })
@@ -46,10 +50,13 @@ public class Movie {
 	
 	@OneToOne
 	private Imdb imdb;
-
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany
 	private List<Cast> cast;
 	
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany
 	private List<Genre> genre;
 	
