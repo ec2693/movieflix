@@ -3,6 +3,8 @@ package io.egen.rest.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -10,6 +12,12 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
+@NamedQueries({
+	@NamedQuery(name = "MovieReview.findAll",query = "Select r FROM MovieReview r"),
+	@NamedQuery(name = "MovieReview.findAllReviewForMovie",query = "SELECT r FROM MovieReview r WHERE r.movie =:pMovie"),
+	@NamedQuery(name = "Movie.findAllReviewByUser",query = "SELECT r FROM MovieReview r WHERE r.user=:pUser"),
+	@NamedQuery(name = "Movie.findAReviewForMovieByUser",query = "SELECT r FROM MovieReview r WHERE r.movie =:pMovie AND r.user=:pUser")
+})
 public class MovieReview {
 	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
@@ -21,6 +29,7 @@ public class MovieReview {
 	
 	@OneToOne
 	private Movie movie;
+	
 	private String comments;
 	private int ratings;
 	public String getId() {
