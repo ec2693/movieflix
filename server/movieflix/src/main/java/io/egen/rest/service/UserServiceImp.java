@@ -21,7 +21,10 @@ public class UserServiceImp implements UserService {
     	 return repository.findAllUser();
      }
      
-     
+     @Override
+ 	public User getUserByUserId(String userId) {
+ 		return repository.getUserByUserId(userId);
+ 	}
 	 
      @Override
 	public User getUser(String userName, String password) {
@@ -73,5 +76,9 @@ public class UserServiceImp implements UserService {
 		repository.deleteUser(existing);
 		
 	}
+
+
+
+	
 
 }

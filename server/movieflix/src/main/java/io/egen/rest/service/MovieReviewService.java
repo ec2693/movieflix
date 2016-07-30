@@ -2,6 +2,7 @@ package io.egen.rest.service;
 
 import java.util.List;
 
+import io.egen.rest.entity.Movie;
 import io.egen.rest.entity.MovieReview;
 
 public interface MovieReviewService {
@@ -16,13 +17,15 @@ public interface MovieReviewService {
 
       public MovieReview createMovieReview(MovieReview movieReview);
 
-      public MovieReview updateMovieReview(String userId,String movieId,MovieReview movieReview);
+      public MovieReview updateMovieReview(String movieReviewId, MovieReview movieReview);
 
 	  public void deleteMovieReview(String userId, String movieId);
  
 	  public void deleteAllMovieReviewForUser(String userId);
 	
 	  public void deleteAllMovieReviewForMovie(String movieId);
+
+
 
 
 }

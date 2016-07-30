@@ -7,6 +7,8 @@ import io.egen.rest.entity.User;
 public interface UserService {
 	
 	public List<User> findAllUser();
+	
+	public User getUserByUserId(String userId);
 
 	public User getUser(String userName,String password);
 	

@@ -15,8 +15,8 @@ import org.hibernate.annotations.GenericGenerator;
 @NamedQueries({
 	@NamedQuery(name = "MovieReview.findAll",query = "Select r FROM MovieReview r"),
 	@NamedQuery(name = "MovieReview.findAllReviewForMovie",query = "SELECT r FROM MovieReview r WHERE r.movie =:pMovie"),
-	@NamedQuery(name = "Movie.findAllReviewByUser",query = "SELECT r FROM MovieReview r WHERE r.user=:pUser"),
-	@NamedQuery(name = "Movie.findAReviewForMovieByUser",query = "SELECT r FROM MovieReview r WHERE r.movie =:pMovie AND r.user=:pUser")
+	@NamedQuery(name = "MovieReview.findAllReviewByUser",query = "SELECT r FROM MovieReview r WHERE r.user=:pUser"),
+	@NamedQuery(name = "MovieReview.findAReviewForMovieByUser",query = "SELECT r FROM MovieReview r WHERE r.movie =:pMovie AND r.user=:pUser")
 })
 public class MovieReview {
 	@Id

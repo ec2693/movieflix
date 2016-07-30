@@ -44,12 +44,12 @@ public class MovieReviewController {
 	public MovieReview createMovieReview(@RequestBody MovieReview movieReview){
 		return service.createMovieReview(movieReview);
 }
-
-	@RequestMapping(method = RequestMethod.PUT,path = "{userId}/{movieId}" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public MovieReview updateMovieReview(@PathVariable("userId") String userId,@PathVariable("movieId") String movieId, @RequestBody MovieReview movieReview){
-		return service.updateMovieReview(userId,movieId,movieReview);
+   //CHECK THIS
+	@RequestMapping(method = RequestMethod.PUT,path = "{ReviewId}" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public MovieReview updateMovieReview(@PathVariable("ReviewId") String movieReviewId, @RequestBody MovieReview movieReview){
+		return service.updateMovieReview(movieReviewId,movieReview);
 	}
-	
+	//CHECK THIS
 	@RequestMapping(method = RequestMethod.DELETE, path = "{userId}/{movieId}")
 	public void deleteMovieReview(@PathVariable("userId") String userId,@PathVariable("movieId") String movieId){
 		service.deleteMovieReview(userId,movieId);

@@ -1,12 +1,16 @@
 package io.egen.rest.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
+
+import io.egen.rest.entity.Movie;
 import io.egen.rest.entity.MovieReview;
+import io.egen.rest.entity.User;
 
 @Repository
 public class MovieReviewRepositoryImp implements MovieReviewRepository{
@@ -14,6 +18,11 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Override
+	public MovieReview getMovieReviewById(String movieReviewId) {
+		return em.find(MovieReview.class, movieReviewId);
+	}
 	
 
 	@Override
@@ -23,21 +32,25 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 	}
 
 	@Override
-	public List<MovieReview> getAllReviewForMovie(String movieId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<MovieReview> getAllReviewForMovie(Movie movie) {
+		TypedQuery<MovieReview> query = em.createNamedQuery("MovieReview.findAllReviewForMovie", MovieReview.class);
+		query.setParameter("pMovie", movie);
+		return query.getResultList();
 	}
 
 	@Override
-	public List<MovieReview> getAllReviewByUser(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<MovieReview> getAllReviewByUser(User user) {
+		TypedQuery<MovieReview> query = em.createNamedQuery("MovieReview.findAllReviewByUser", MovieReview.class);
+		query.setParameter("pUser", user);
+		return query.getResultList();
 	}
 
 	@Override
-	public MovieReview getReviewByUserForMovie(String userId, String movieId) {
-		// TODO Auto-generated method stub
-		return null;
+	public MovieReview getReviewByUserForMovie(User user,Movie movie) {
+		TypedQuery<MovieReview> query = em.createNamedQuery("MovieReview.findAReviewForMovieByUser", MovieReview.class);
+		query.setParameter("pMovie", movie);
+		query.setParameter("pUser", user);
+		return query.getSingleResult();
 	}
 
 	@Override
@@ -72,6 +85,8 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 		}
 		
 	}
+
+	
 
 
 
