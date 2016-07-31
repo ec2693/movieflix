@@ -50,7 +50,11 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 		TypedQuery<MovieReview> query = em.createNamedQuery("MovieReview.findAReviewForMovieByUser", MovieReview.class);
 		query.setParameter("pMovie", movie);
 		query.setParameter("pUser", user);
-		return query.getSingleResult();
+		List<MovieReview> review = query.getResultList();
+		if( review!=null && review.size() == 1 ){
+			return review.get(0);
+		}
+		return null;
 	}
 
 	@Override
@@ -61,8 +65,8 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 
 	@Override
 	public MovieReview updateMovieReview(MovieReview movieReview) {
-		em.merge(movieReview);
-		return movieReview;
+		return em.merge(movieReview);
+		
 		
 	}
 

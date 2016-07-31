@@ -18,12 +18,16 @@ public interface MovieReviewService {
       public MovieReview createMovieReview(MovieReview movieReview);
 
       public MovieReview updateMovieReview(String movieReviewId, MovieReview movieReview);
+      
+      public void deleteMovieReviewById(String movieReviewId);
 
 	  public void deleteMovieReview(String userId, String movieId);
  
 	  public void deleteAllMovieReviewForUser(String userId);
 	
 	  public void deleteAllMovieReviewForMovie(String movieId);
+
+	
 
 
 

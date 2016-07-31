@@ -45,11 +45,17 @@ public class MovieReviewController {
 		return service.createMovieReview(movieReview);
 }
    //CHECK THIS
-	@RequestMapping(method = RequestMethod.PUT,path = "{ReviewId}" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public MovieReview updateMovieReview(@PathVariable("ReviewId") String movieReviewId, @RequestBody MovieReview movieReview){
+	@RequestMapping(method = RequestMethod.PUT,path = "{movieReviewId}" ,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public MovieReview updateMovieReview(@PathVariable("movieReviewId") String movieReviewId, @RequestBody MovieReview movieReview){
 		return service.updateMovieReview(movieReviewId,movieReview);
 	}
-	//CHECK THIS
+	
+	@RequestMapping(method = RequestMethod.DELETE, path = "{movieReviewId}")
+	public void deleteMovieReviewById(@PathVariable("movieReviewId") String movieReviewId){
+		service.deleteMovieReviewById(movieReviewId);
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.DELETE, path = "{userId}/{movieId}")
 	public void deleteMovieReview(@PathVariable("userId") String userId,@PathVariable("movieId") String movieId){
 		service.deleteMovieReview(userId,movieId);

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import io.egen.rest.entity.Movie;
 import io.egen.rest.entity.MovieReview;
 import io.egen.rest.entity.User;
+import io.egen.rest.exception.ReviewAlreadyExistsException;
 import io.egen.rest.exception.ReviewDoesNotExistsException;
 import io.egen.rest.repository.MovieReviewRepository;
 
@@ -54,29 +55,53 @@ public class MovieReviewServiceImp implements MovieReviewService{
 	public MovieReview createMovieReview(MovieReview movieReview) {
 		String movieId = movieReview.getMovie().getId();
 		String userId = movieReview.getUser().getId();
-		
-//		MovieReview existing = repository.getReviewByUserForMovie(userId,movieId);
-//		if(existing != null){
-//			throw new ReviewAlreadyExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" by user"+movieReview.getUser().getUserName()+"  already exist");
-//		}
-//	else
 		Movie movie = mService.findById(movieId);
 		User user = uService.getUserByUserId(userId);
+		if(movie !=null  && user!=null){
+		MovieReview existing = repository.getReviewByUserForMovie(user,movie);
+		if(existing != null){
+			throw new ReviewAlreadyExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" by user"+movieReview.getUser().getUserName()+"  already exist");
+		}
+	else
+	{
 		  movieReview.setMovie(movie);
 		  movieReview.setUser(user);
 		return repository.createMovieReview(movieReview);
-	   //}
+	   }
+		}
+		else{
+			throw new ReviewAlreadyExistsException("User or Movie doesnt exists");
+		}
 	}
 
 	@Override
 	@Transactional
 	public MovieReview updateMovieReview(String movieReviewId,MovieReview movieReview) {
-//		MovieReview existing = repository.getReviewByUserForMovie(userId,movieId);
-//		if(existing == null){
-//			throw new ReviewDoesNotExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" by user"+movieReview.getUser().getUserName()+"  doesn't exist");
-//		}
+		String movieId = movieReview.getMovie().getId();
+		String userId = movieReview.getUser().getId();
 		MovieReview existing = repository.getMovieReviewById(movieReviewId);
-		return repository.updateMovieReview(existing);
+		if(existing == null){
+			throw new ReviewDoesNotExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" doesn't exist");
+		}
+		else{
+			Movie movie = mService.findById(movieId);
+			User user = uService.getUserByUserId(userId);
+			mService.updateMovie(movieId, movie);
+			uService.updateUser(userId, user);
+		    return repository.updateMovieReview(movieReview);
+	}
+	}
+	
+	@Override
+	@Transactional
+	public void deleteMovieReviewById(String movieReviewId) {
+		MovieReview existing = repository.getMovieReviewById(movieReviewId);
+		if(existing == null){
+			throw new ReviewDoesNotExistsException("MovieReview doesn't exist");
+		}
+			repository.deleteMovieReview(existing);
+			
+		
 	}
 
 	@Override
@@ -109,6 +134,8 @@ public class MovieReviewServiceImp implements MovieReviewService{
 		repository.deleteAllMovieReviewForMovie(existings);
 
 	}
+
+	
 
 	
 
