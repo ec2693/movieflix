@@ -50,10 +50,18 @@ public class MovieController {
 		return service.findAllByGenre(genre);
 	}
 	
+
+	@RequestMapping(method = RequestMethod.GET, path = "findAllByTypeAndGenre/{type}/{genreType}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> findAllByTypeAndGenre(@PathVariable("type") String type,@PathVariable("genreType") String genreType){
+		return service.findAllByTypeAndGenre(type,genreType);
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.GET, path = "sortAllByYear",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Movie> sortAllByYear(){
 		return service.sortAllByYear();
 	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForMovie/{movieId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Double getAverageRatingByUsers(@PathVariable("movieId") String movieId){

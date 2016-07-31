@@ -58,6 +58,16 @@ public class MovieRepositoryImp implements MovieRepository{
 	  query.setParameter("pGenreType", genreType);
 		return query.getResultList();
 	}
+	
+	@Override
+	public List<Movie> findAllByTypeAndGenre(String type, String genreType) {
+		TypedQuery<Movie> query = em.createQuery("SELECT m FROM Movie m JOIN m.genre g WHERE m.type =:pType AND g.genreType = :pGenreType",Movie.class);
+		 query.setParameter("pType", type);
+		 query.setParameter("pGenreType", genreType);
+			return query.getResultList();
+		
+	}
+
 
 
 	@Override
@@ -86,6 +96,7 @@ public class MovieRepositoryImp implements MovieRepository{
 		
 	}
 
+	
 	
 	
 

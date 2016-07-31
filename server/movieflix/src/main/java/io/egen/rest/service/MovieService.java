@@ -17,6 +17,8 @@ public interface MovieService {
 	
 	public List<Movie> findAllByGenre(String genre);
 	
+	public List<Movie> findAllByTypeAndGenre(String type, String genreType);
+	
 	public List<Movie> sortAllByYear();
 	
 	public Double getAverageRatingByUsers(String movieId);
@@ -26,6 +28,8 @@ public interface MovieService {
 	public Movie updateMovie(String movieId,Movie movie);
 	
 	public void deleteMovie(String movieId);
+
+	
 
 	
 

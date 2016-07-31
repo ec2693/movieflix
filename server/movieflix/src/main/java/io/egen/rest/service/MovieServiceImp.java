@@ -68,6 +68,12 @@ public class MovieServiceImp implements MovieService {
 	public List<Movie> findAllByGenre(String genre) {
 		return repository.findAllByGenre(genre);
 	}
+	
+	@Override
+	public List<Movie> findAllByTypeAndGenre(String type, String genreType) {
+		return repository.findAllByTypeAndGenre(type,genreType);
+	}
+
 
 	@Override
 	public List<Movie> sortAllByYear() {
@@ -132,6 +138,7 @@ public class MovieServiceImp implements MovieService {
 		
 	}
 
+	
 	
 	
 
