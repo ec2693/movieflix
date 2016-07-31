@@ -55,12 +55,10 @@ public class MovieController {
 		return service.sortAllByYear();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatings/{movieId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForMovie/{movieId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Double getAverageRatingByUsers(@PathVariable("movieId") String movieId){
 		return service.getAverageRatingByUsers(movieId);
 	}
-	
-	
 	
 	@RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie createMovie(@RequestBody Movie movie){
