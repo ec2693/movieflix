@@ -88,8 +88,8 @@ public class MovieServiceImp implements MovieService {
 	
 	
 	@Override
-	public Double getAverageRatingByUsers(String movieId) {
-	  Movie movie =	repository.findById(movieId);
+	public Double getAverageRatingByUsers(String titleId) {
+	  Movie movie =	repository.findById(titleId);
 	  System.out.println("era");
 	   return mRService.getAverageRating(movie);
 		

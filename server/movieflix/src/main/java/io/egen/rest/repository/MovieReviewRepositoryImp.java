@@ -59,8 +59,9 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 	
 	@Override
 	public Double getAverageRating(Movie movie) {
-		Query query = em.createQuery("Select AVG(r.ratings) from MovieReview r WHERE r.movie = movie");
-	      Double result = (Double) query.getSingleResult();
+		Query query = em.createQuery("Select AVG(r.ratings) from MovieReview r WHERE r.movie = :pMovie");
+		query.setParameter("pMovie", movie);
+	     Double result = (Double) query.getSingleResult();
 		return result;
 	 
 	}

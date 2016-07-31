@@ -23,7 +23,7 @@ public interface MovieService {
 	
 	public List<Movie> sortAllByTypeAndYear(String type);
 	
-	public Double getAverageRatingByUsers(String movieId);
+	public Double getAverageRatingByUsers(String titleId);
 	
 	public Movie createMovie(Movie movie);
 	
