@@ -63,15 +63,29 @@ public class MovieController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "sortTitlesByTypeAndYear/{type}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Movie> sortAllByTypeAndyear(@PathVariable("type") String type){
+	public List<Movie> sortAllByTypeAndYear(@PathVariable("type") String type){
 		return service.sortAllByTypeAndYear(type);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, path = "sortTitlesByTypeAndImdbRatings/{type}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> sortAllByTypeAndImdbRatings(@PathVariable("type") String type){
+		return service.sortAllByTypeAndImdbRatings(type);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, path = "sortTitlesByTypeAndImdbVotes/{type}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> sortAllByTypeAndImdbVotes(@PathVariable("type") String type){
+		return service.sortAllByTypeAndImdbVotes(type);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, path = "getImdbLinkForTitle/{titleName}",produces = MediaType.TEXT_HTML_VALUE)
+	public String getImdbLink(@PathVariable("titleName") String titleName){
+		return service.getImdbLink(titleName);
+	}
 	
 	
-	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForTitle/{titleId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Double getAverageRatingByUsers(@PathVariable("titleId") String titleId){
-		return service.getAverageRatingByUsers(titleId);
+	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForTitle/{titleName}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Double getAverageRatingByUsers(@PathVariable("titleName") String titleName){
+		return service.getAverageRatingByUsers(titleName);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)

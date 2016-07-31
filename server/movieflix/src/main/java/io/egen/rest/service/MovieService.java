@@ -23,13 +23,25 @@ public interface MovieService {
 	
 	public List<Movie> sortAllByTypeAndYear(String type);
 	
-	public Double getAverageRatingByUsers(String titleId);
+	public List<Movie> sortAllByTypeAndImdbRatings(String type);
+	
+	public List<Movie> sortAllByTypeAndImdbVotes(String type);
+
+	public String getImdbLink(String titleName);
+
+	public Double getAverageRatingByUsers(String titleName);
 	
 	public Movie createMovie(Movie movie);
 	
 	public Movie updateMovie(String movieId,Movie movie);
 	
 	public void deleteMovie(String movieId);
+
+	
+
+	
+
+	
 
 	
 

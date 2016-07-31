@@ -4,6 +4,7 @@ package io.egen.rest.repository;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import io.egen.rest.entity.Movie;
@@ -81,7 +82,31 @@ public class MovieRepositoryImp implements MovieRepository{
 		 query.setParameter("pType", type);
 			return query.getResultList();
 	}
-
+	
+	@Override
+	public List<Movie> sortAllByTypeAndImdbRatings(String type) {
+		TypedQuery<Movie> query = em.createQuery("SELECT m FROM Movie m JOIN m.imdb i WHERE m.type =:pType ORDER BY i.imdbRating DESC",Movie.class);
+		 query.setParameter("pType", type);
+			return query.getResultList();
+	}
+	
+	@Override
+	public List<Movie> sortAllByTypeAndImdbVotes(String type) {
+		TypedQuery<Movie> query = em.createQuery("SELECT m FROM Movie m JOIN m.imdb i WHERE m.type =:pType ORDER BY i.imdbVotes DESC",Movie.class);
+		 query.setParameter("pType", type);
+			return query.getResultList();
+	}
+	
+	@Override
+	public String getImdbLink(String titleName) {
+		Query query = em.createQuery("SELECT i.imdbId FROM Movie m JOIN m.imdb i WHERE m.title =:pTitleName");
+		query.setParameter("pTitleName", titleName);
+		StringBuilder sb = new StringBuilder();
+		sb.append("http://www.imdb.com/title/");
+		sb.append((String) query.getSingleResult());
+	    sb.append("/");
+		return sb.toString();
+	}
 
 	@Override
 	public Movie createMovie(Movie movie) {
@@ -103,10 +128,6 @@ public class MovieRepositoryImp implements MovieRepository{
 	}
 
 	
-	
-	
-	
-
 	
 
 }
