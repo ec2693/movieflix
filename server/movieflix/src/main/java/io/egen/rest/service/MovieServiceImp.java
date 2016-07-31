@@ -81,6 +81,13 @@ public class MovieServiceImp implements MovieService {
 	}
 	
 	@Override
+	public List<Movie> sortAllByTypeAndYear(String type) {
+		return repository.sortAllByTypeAndYear(type);
+	}
+
+	
+	
+	@Override
 	public Double getAverageRatingByUsers(String movieId) {
 	  Movie movie =	repository.findById(movieId);
 	  System.out.println("era");

@@ -22,11 +22,15 @@ public interface MovieRepository {
 	
 	public List<Movie> sortAllByYear();
 	
+	public List<Movie> sortAllByTypeAndYear(String type);
+	
 	public Movie createMovie(Movie movie);
 	
 	public Movie updateMovie(Movie movie);
 	
 	public void deleteMovie(Movie movie);
+
+	
 
 	
 

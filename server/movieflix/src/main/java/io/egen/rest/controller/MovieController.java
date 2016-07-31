@@ -62,6 +62,12 @@ public class MovieController {
 		return service.sortAllByYear();
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, path = "sortAllByTypeAndYear/{type}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> sortAllByTypeAndyear(@PathVariable("type") String type){
+		return service.sortAllByTypeAndYear(type);
+	}
+	
+	
 	
 	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForMovie/{movieId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Double getAverageRatingByUsers(@PathVariable("movieId") String movieId){

@@ -68,14 +68,20 @@ public class MovieRepositoryImp implements MovieRepository{
 		
 	}
 
-
-
 	@Override
 	public List<Movie> sortAllByYear() {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.sortAllByYear", Movie.class);
 		return query.getResultList();
 		
 	}
+	
+	@Override
+	public List<Movie> sortAllByTypeAndYear(String type) {
+		TypedQuery<Movie> query = em.createQuery("SELECT m FROM Movie m WHERE m.type =:pType ORDER BY m.year DESC",Movie.class);
+		 query.setParameter("pType", type);
+			return query.getResultList();
+	}
+
 
 	@Override
 	public Movie createMovie(Movie movie) {
@@ -96,6 +102,7 @@ public class MovieRepositoryImp implements MovieRepository{
 		
 	}
 
+	
 	
 	
 	
