@@ -19,6 +19,10 @@ public class GenreServiceImp implements GenreService {
 	public Genre getGenre(String genreId) {
 		return repository.getGenre(genreId);
 	}
+	
+	public List<Genre> getGenreForGenreType(String genreType){
+		return repository.getGenreForGenreType(genreType);
+	}
 
 	@Override
 	@Transactional

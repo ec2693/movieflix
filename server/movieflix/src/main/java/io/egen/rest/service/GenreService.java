@@ -6,6 +6,8 @@ import io.egen.rest.entity.Genre;
 public interface GenreService {
 	
     public Genre getGenre(String genreId);
+    
+    public List<Genre> getGenreForGenreType(String genreType);
 	
 	public List<Genre> createGenre(List<Genre> genre);
 	

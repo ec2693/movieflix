@@ -17,7 +17,9 @@ public interface MovieReviewRepository {
 	public List<MovieReview> getAllReviewByUser(User user);
 
 	public MovieReview getReviewByUserForMovie(User user, Movie movie);
-
+	
+	public Double getAverageRating(Movie movie);
+	
 	public MovieReview createMovieReview(MovieReview movieReview);
 
 	public MovieReview updateMovieReview(MovieReview movieReview);
@@ -27,6 +29,9 @@ public interface MovieReviewRepository {
 	public void deleteAllMovieReviewForUser(List<MovieReview> movieReview);
 
 	public void deleteAllMovieReviewForMovie(List<MovieReview> movieReview);
+
+
+	
 
 	
 

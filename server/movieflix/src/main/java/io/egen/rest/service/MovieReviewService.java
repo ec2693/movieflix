@@ -14,6 +14,8 @@ public interface MovieReviewService {
       public List<MovieReview> getAllReviewByUser(String userId);
       
       public MovieReview getReviewByUserForMovie(String userId, String movieId);
+      
+      public Double getAverageRating(Movie movie);
 
       public MovieReview createMovieReview(MovieReview movieReview);
 

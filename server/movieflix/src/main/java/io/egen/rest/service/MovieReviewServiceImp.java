@@ -48,6 +48,12 @@ public class MovieReviewServiceImp implements MovieReviewService{
 		User user = uService.getUserByUserId(userId);
 		return repository.getReviewByUserForMovie(user,movie);
 	}
+	
+	@Override
+	public Double getAverageRating(Movie movie) {
+		return repository.getAverageRating(movie);
+	
+	}
 
 
 	@Override
@@ -134,6 +140,8 @@ public class MovieReviewServiceImp implements MovieReviewService{
 		repository.deleteAllMovieReviewForMovie(existings);
 
 	}
+
+	
 
 	
 

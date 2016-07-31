@@ -1,10 +1,10 @@
 package io.egen.rest.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
@@ -56,6 +56,14 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 		}
 		return null;
 	}
+	
+	@Override
+	public Double getAverageRating(Movie movie) {
+		Query query = em.createQuery("Select AVG(r.ratings) from MovieReview r WHERE r.movie = movie");
+	      Double result = (Double) query.getSingleResult();
+		return result;
+	 
+	}
 
 	@Override
 	public MovieReview createMovieReview(MovieReview movieReview) {
@@ -89,6 +97,12 @@ public class MovieReviewRepositoryImp implements MovieReviewRepository{
 		}
 		
 	}
+
+
+	
+
+
+	
 
 	
 

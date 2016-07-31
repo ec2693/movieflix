@@ -27,6 +27,9 @@ public class MovieServiceImp implements MovieService {
 	
 	@Autowired
 	GenreService gService;
+	
+	@Autowired 
+	MovieReviewService  mRService;
 
 	@Override
 	public List<Movie> findAll() {
@@ -60,11 +63,25 @@ public class MovieServiceImp implements MovieService {
 	public List<Movie> findAllByYear(int year) {
 		return repository.findAllByYear(year);
 	}
+	
+	@Override
+	public List<Movie> findAllByGenre(String genre) {
+		return repository.findAllByGenre(genre);
+	}
 
 	@Override
 	public List<Movie> sortAllByYear() {
 		return repository.sortAllByYear();
 	}
+	
+	@Override
+	public Double getAverageRatingByUsers(String movieId) {
+	  Movie movie =	repository.findById(movieId);
+	  System.out.println("era");
+	   return mRService.getAverageRating(movie);
+		
+	}
+
 
 	@Override
 	@Transactional
@@ -114,6 +131,9 @@ public class MovieServiceImp implements MovieService {
 		  repository.deleteMovie(existing);
 		
 	}
+
+	
+	
 
 	
 

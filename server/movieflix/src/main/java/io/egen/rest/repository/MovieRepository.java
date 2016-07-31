@@ -1,6 +1,8 @@
 package io.egen.rest.repository;
 
 import java.util.List;
+
+import io.egen.rest.entity.Genre;
 import io.egen.rest.entity.Movie;
 
 public interface MovieRepository {
@@ -15,6 +17,8 @@ public interface MovieRepository {
 	
 	public List<Movie> findAllByYear(int year);
 	
+	public List<Movie> findAllByGenre(String genre);
+	
 	public List<Movie> sortAllByYear();
 	
 	public Movie createMovie(Movie movie);
@@ -22,6 +26,8 @@ public interface MovieRepository {
 	public Movie updateMovie(Movie movie);
 	
 	public void deleteMovie(Movie movie);
+
+	
 
 	
 

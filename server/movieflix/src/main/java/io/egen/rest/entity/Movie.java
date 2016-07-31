@@ -23,7 +23,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 	@NamedQuery(name = "Movie.findByTitle",query = "SELECT m FROM Movie m WHERE m.title=:pTitle"),
 	@NamedQuery(name = "Movie.findAllByType",query = "SELECT m FROM Movie m WHERE m.type=:pType"),
 	@NamedQuery(name = "Movie.findAllByYear",query = "SELECT m FROM Movie m WHERE m.year=:pYear"),
-	@NamedQuery(name = "Movie.sortAllByYear",query = "SELECT m FROM Movie m ORDER BY m.year DESC"),
+	@NamedQuery(name = "Movie.findAllByGenre",query = "SELECT m FROM Movie m WHERE m.genre=:pGenre"),
+	@NamedQuery(name = "Movie.sortAllByYear",query = "SELECT m FROM Movie m ORDER BY m.year DESC")
 })
 public class Movie {
 	

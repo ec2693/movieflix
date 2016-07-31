@@ -1,7 +1,7 @@
 package io.egen.rest.repository;
 
-import java.util.List;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -51,6 +51,14 @@ public class MovieRepositoryImp implements MovieRepository{
 		query.setParameter("pYear", year);
 		return query.getResultList();
 	}
+	
+	@Override
+	public List<Movie> findAllByGenre(String  genreType) {
+	  TypedQuery<Movie> query = em.createQuery("SELECT m FROM Movie m JOIN m.genre g WHERE g.genreType = :pGenreType",Movie.class);
+	  query.setParameter("pGenreType", genreType);
+		return query.getResultList();
+	}
+
 
 	@Override
 	public List<Movie> sortAllByYear() {
@@ -78,6 +86,7 @@ public class MovieRepositoryImp implements MovieRepository{
 		
 	}
 
+	
 	
 
 	

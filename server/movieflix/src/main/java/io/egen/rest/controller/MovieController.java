@@ -35,20 +35,32 @@ public class MovieController {
 		return service.findByTitle(title);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "findByType/{type}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET, path = "findAllByType/{type}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Movie> findAllByType(@PathVariable("type") String type){
 		return service.findAllByType(type);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "findByYear/{year}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET, path = "findAllByYear/{year}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Movie> findAllByYear( @PathVariable("year") int year){
 		return service.findAllByYear(year);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "sortByYear/year",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.GET, path = "findAllByGenre/{genre}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> findAllByGenre( @PathVariable("genre") String genre){
+		return service.findAllByGenre(genre);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, path = "sortAllByYear",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Movie> sortAllByYear(){
 		return service.sortAllByYear();
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatings/{movieId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Double getAverageRatingByUsers(@PathVariable("movieId") String movieId){
+		return service.getAverageRatingByUsers(movieId);
+	}
+	
+	
 	
 	@RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie createMovie(@RequestBody Movie movie){
