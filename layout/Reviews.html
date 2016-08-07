@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "Reviews.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class = "container">
+        <h1>User Reviews</h1>
+         <div class = "review">
+             <div class = "row" >
+                 <div class="col-xs-2">
+                   <span class="glyphicon glyphicon-user"></span>
+                 </div>
+                 <div class="col-xs-2">
+                     <p class = "name"> Era Chaudhary</p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <span class="glyphicon glyphicon-comment"></span>
+                 </div>
+                 <div class="col-xs-6">
+                     <p class = "comment"> One Time Watch</p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <p>Ratings</p>
+                 </div>
+                 <div class="col-xs-2">
+                     <p>
+                         <span class="glyphicon glyphicon-star"></span>
+                         <span class="glyphicon glyphicon-star"></span>
+                         <span class="glyphicon glyphicon-star"></span>
+                         <span class="glyphicon glyphicon-star"></span>
+                     </p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <span class="glyphicon glyphicon-user"></span>
+                 </div>
+                 <div class="col-xs-2">
+                     <p class = "name"> Manu Tomar</p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <span class="glyphicon glyphicon-comment"></span>
+                 </div>
+                 <div class="col-xs-6">
+                     <p class = "comment"> Funny</p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <p>Ratings</p>
+                 </div>
+                 <div class="col-xs-2">
+                     <p>
+                         <span class="glyphicon glyphicon-star"></span>
+                         <span class="glyphicon glyphicon-star"></span>
+                         <span class="glyphicon glyphicon-star"></span>
+                     </p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <span class="glyphicon glyphicon-user"></span>
+                 </div>
+                 <div class="col-xs-2">
+                     <p class = "name"> Avi Chaudhary</p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <span class="glyphicon glyphicon-comment"></span>
+                 </div>
+                 <div class="col-xs-6">
+                     <p class = "comment"> Doesn't Like Much</p>
+                 </div>
+             </div>
+             <div class = "row" >
+                 <div class="col-xs-2">
+                     <p>Ratings</p>
+                 </div>
+                 <div class="col-xs-2">
+                     <p>
+                         <span class="glyphicon glyphicon-star"></span>
+                         <span class="glyphicon glyphicon-star"></span>
+                     </p>
+                 </div>
+             </div>
+             <div class = "row">
+                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#add">Add Review</button>
+             </div>
+             <div class = "collapse" id = "add">
+                <div class ="row">
+                     <form class = "form-inline" role="form">
+                        <div class = "col-xs-8">
+                            <div class="form-group">
+                                <label for ="comment">Comment</label>
+                                <input type="text" class="form-control" id = "comment">
+                            </div>
+                            <div class="form-group">
+                                <label for ="rating">Rating</label>
+                                <select class="form-control" id="rating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-info">Add</button>
+                        </div>
+                     </form>
+                </div>
+             </div>
+         </div>
+    </div>
+</body>
+</html>
