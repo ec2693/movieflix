@@ -1,0 +1,56 @@
+.form-control{
+    border:2px solid coral;
+}
+
+h1{
+    color:orangered;
+}
+a.btn.btn-info:hover{
+    background-color:orangered;
+    border: 2px solid black;
+}
+
+a.btn-info:focus{
+    background-color:orangered;
+    border:2px solid black;
+}
+a.btn-info:active{
+    background-color:orangered;
+    border:2px solid black;
+}
+a.btn-info:visited{
+    background-color:orangered;
+    border:2px solid black;
+}
+.header{
+    background-color: black;
+    width:100%;
+    height:150px;
+    margin-top:4px;
+    border:2px solid orangered;
+
+}
+.content{
+    color:orangered;
+    text-align:center;
+    padding:2px;
+    font-size:5.0vw;
+
+}
+
+body{
+    background-image:url("popcorn.jpg");
+}
+.glyphicon-plus{
+    font-size: 4.0vw;
+    color:orangered;
+    /*margin-top:30px;*/
+    /*margin-left:30px;*/
+
+}
+.row{
+    padding:15px;
+}
+.form-horizontal{
+    padding:5px;
+}
