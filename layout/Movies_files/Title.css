@@ -7,7 +7,7 @@ img{
 
 }
 p{
-    /*margin-top:15px;*/
+    margin-top:15px;
     font-size: 1.0vw;
     text-align: left;
 }
@@ -122,20 +122,5 @@ a.btn.btn-info{
 
 .plot{
     color:coral;
-}
-
-.header{
-    background-color:black;
-    width:100%;
-    height:70px;
-    margin-top:4px;
-    border:1px solid coral;
-}
-#content{
-    color: coral;
-    padding:3px;
-    text-align:center;
-    font-size:3.0vw;
-
 }
 
