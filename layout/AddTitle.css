@@ -1,0 +1,69 @@
+.form-control{
+    border:2px solid coral;
+    background-color: gainsboro;
+}
+
+h1{
+    color:orangered;
+}
+
+.btn-info{
+    background-color: orangered;
+    border:2px solid black;
+}
+.btn.btn-info:hover{
+    background-color:orangered;
+    border: 2px solid black;
+}
+
+.btn-info:focus{
+    background-color:orangered;
+    border:2px solid black;
+}
+.btn-info:active{
+    background-color:orangered;
+    border:2px solid black;
+}
+.btn-info:visited{
+    background-color:orangered;
+    border:2px solid black;
+}
+.header{
+    background-color: black;
+    width:100%;
+    height:100px;
+    margin-top:4px;
+    border:2px solid orangered;
+
+}
+.content{
+    color:orangered;
+    text-align:center;
+    padding:1px;
+    font-size:4.0vw;
+
+}
+
+body{
+    background-image:url("popcorn.jpg");
+    background-size:contain;
+    background-position:center;
+}
+.glyphicon-plus{
+    font-size: 4.0vw;
+    color:orangered;
+    /*margin-top:30px;*/
+    /*margin-left:30px;*/
+
+}
+.row{
+    padding:4px;
+}
+.form-horizontal{
+    padding:5px;
+}
+
+.custom-select{
+    width:150px;
+    height:25px;
+}
