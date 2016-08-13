@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class = "container">
+    <div class = "details">
+    <div class = "header">
+        <p id = "content">Details</p>
+    </div>
+    <div class = "row">
+        <div class="col-xs-4">
+            <a href="#"><img class = "img-responsive" ng-src="http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg" /></a>
+        </div>
+        <div class="col-xs-8">
+            <dl>
+                <dt>Title</dt>
+                <dd>{{titleDetailVm.movie.title}}<br/><br/></dd>
+                <dt>ReleasedDate</dt>
+                <dd>{{titleDetailVm.movie.released}}<br/><br/></dd>
+                <dt>Runtime</dt>
+                <dd>{{titleDetailVm.movie.runtime}}<br/><br/></dd>
+                <dt>Director</dt>
+                <div class = "cast" ng-repeat="cast in titleDetailVm.cast| filter: { castType: 'director' }">
+                  <dd>{{cast.castName}}</dd>
+                </div>
+                <br/>
+                <dt>Writers</dt>
+                <div class = "cast" ng-repeat="cast in titleDetailVm.cast| filter: { castType: 'writer' }">
+                    <dd>{{cast.castName}}</dd>
+                </div>
+                <br/>
+                <dt>Actors</dt>
+                <div class = "cast" ng-repeat="cast in titleDetailVm.cast| filter: { castType: 'actor' }">
+                    <dd >{{cast.castName}}</dd>
+                </div>
+                <br/>
+                <dt>Awards</dt>
+                <dd>{{titleDetailVm.movie.award}}<br/><br/></dd>
+                <dt>Country</dt>
+                <dd>{{titleDetailVm.movie.country}}<br/><br/></dd>
+                <dt>Language</dt>
+                <dd>{{titleDetailVm.movie.language}}<br/><br/></dd>
+                <dd><a href = "https://www.imdb.com/title/{{titleDetailVm.imdb.imdbId}}">ImdbReviews</a><br/><br/></dd>
+                <dt>User Reviews</dt>
+                <div class = "review" ng-repeat="review in titleDetailVm.review">
+                <dd>{{review.comments}}</dd>
+                </div>
+                <a href = "Reviews.html"> More..</a>
+            </dl>
+            <p id = "plot"><strong>Plot:</strong>{{titleDetailVm.movie.plot}}</p>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

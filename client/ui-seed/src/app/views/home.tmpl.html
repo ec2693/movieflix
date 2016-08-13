@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel = "stylesheet" href = "Home.css">
+</head>
+<body>
+<div class="container">
+    <div class = "header">
+        <p id = "content">Movieflix</p>
+    </div>
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <div class = "movies">
+                <h1> Movies </h1>
+                <div class = "row">
+                    <div class="col-xs-3" ng-repeat="movies in titlesVm.movies|limitTo:3">
+                        <div class = "thumbnail">
+                            <a href = "#/titles/findTitleById/{{movies.id}}"><img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg"/></a>
+                        </div>
+                        <a href = "#/titles/findTitleById/{{movies.id}}"><h3>{{movies.title}}</h3></a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href = "#/titles/findTitlesByType/movie" ><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class = "series">
+                <h1> Series </h1>
+                <div class = "row">
+                    <div class="col-xs-3" ng-repeat="series in titlesVm.series|limitTo:3">
+                        <div class = "thumbnail">
+                            <a href = "#/titles/findTitleById/{{series.id}}" > <img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BNTA2MTE1NDI5OV5BMl5BanBnXkFtZTcwNzM2MzU3Nw@@._V1_SX300.jpg"/></a>
+                        </div>
+                        <a href = "#/titles/findTitleById/{{series.id}}"><h3>{{series.title}}</h3></a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href = "#/titles/findTitlesByType/series" ><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
