@@ -44,6 +44,8 @@
                 <dt>Language</dt>
                 <dd>{{titleDetailVm.movie.language}}<br/><br/></dd>
                 <dd><a href = "https://www.imdb.com/title/{{titleDetailVm.imdb.imdbId}}">ImdbReviews</a><br/><br/></dd>
+                <dt>Average User Ratings</dt>
+                <dd>{{titleDetailVm.rating}}<br/><br/></dd>
                 <dt>User Reviews</dt>
                 <div class = "review" ng-repeat="review in titleDetailVm.review | limitTo:2">
                 <dd>{{review.comments}}</dd>

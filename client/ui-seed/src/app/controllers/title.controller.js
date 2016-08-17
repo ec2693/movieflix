@@ -51,6 +51,14 @@
                     console.log(error);
                 });
             // titleService
+            //     .getAverageRatingForTitle(id)
+            //     .then(function (rating) {
+            //         titlesVm.rating = rating;
+            //     }, function (error) {
+            //         console.log(error);
+            //     });
+
+            // titleService
             //     .getTitlesByTypeAndGenre(titlesVm.genreType)
             //     .then(function(titles){
             //         titlesVm.moviesOfGenre = titles;

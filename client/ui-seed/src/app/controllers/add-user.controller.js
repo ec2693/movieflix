@@ -22,7 +22,7 @@
             userService
                 .createUser(addUserVm.newUser)
                 .then(function(data) {
-                    $location.path('/users/auth');
+                    $location.path('/users/auth/user');
                 }, function(error) {
                     console.log(error);
                 })

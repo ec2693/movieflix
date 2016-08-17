@@ -15,6 +15,7 @@
          self.getSeries = getSeries;
          self.getTitleById = getTitleById;
          self.getTitlesByTypeAndGenre = getTitlesByTypeAndGenre;
+         self.getAverageRatingForTitle = getAverageRatingForTitle;
          self.createTitle = createTitle;
 
         function getAllTitles(){
@@ -39,6 +40,11 @@
 
         function getTitlesByTypeAndGenre(genreType) {
             return $http.get(CONFIG.API_HOST + '/titles/findTitlesByTypeAndGenre/movie/' + genreType)
+                .then(successFn, errorFn);
+        }
+
+        function getAverageRatingForTitle(id) {
+            return $http.get(CONFIG.API_HOST + '/titles/getAverageRatingForTitle/' + id)
                 .then(successFn, errorFn);
         }
 

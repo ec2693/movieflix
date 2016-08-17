@@ -34,7 +34,14 @@
                     console.log(titleDetailVm.review);
                 }, function (error) {
                     console.log(error);
+                });
 
+            titleService
+                .getAverageRatingForTitle($routeParams.id)
+                .then(function (rating) {
+                    titleDetailVm.rating = rating;
+                }, function (error) {
+                    console.log(error);
                 });
 
         }

@@ -22,8 +22,8 @@
         })
         .when('/users/auth/admin', {
             templateUrl: 'app/views/auth-admin.tmpl.html',
-            controller: 'AdminController',
-            controllerAs: 'adminVm'
+            controller: 'AuthAdminController',
+            controllerAs: 'authAdminVm'
         })
         .when('/titles/findTitlesByType/movie', {
           templateUrl: 'app/views/movie.tmpl.html',

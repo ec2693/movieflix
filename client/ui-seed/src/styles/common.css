@@ -72,3 +72,12 @@ dt{
 color:darkslateblue;
 font-size:1.2vw;
 }
+
+.form-control{
+    border:2px solid coral;
+    background-color: gainsboro;
+}
+
+.content{
+    padding-top:100px;
+}

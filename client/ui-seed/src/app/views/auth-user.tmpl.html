@@ -6,25 +6,31 @@
 </head>
 <body>
  <div class = "container">
-     <form name="authForm" ng-submit="authForm.$setPristine(); authUserVm.authUser()" novalidate>
-         <div class = "col-xs-6">
+     <div class = "header">
+         <p id = "content" >MovieTime</p>
+         <img class = "img-responsive" src = "/images/popcorn.jpg">
+     </div>
+     <div class = "content">
+     <form name="authUserForm" ng-submit="authUserForm.$setPristine(); authUserVm.authUser()" novalidate>
+         <div class = " col-sm-offset-4 col-xs-4">
          <div class="form-group">
              <label for="userName">User Name</label>
              <input type="text" class="form-control" id="userName" name="userName" placeholder="User Name" ng-model="authUserVm.existingUser.userName" required >
-             <div ng-messages="userForm.firstName.$error" ng-if="userForm.firstName.$dirty">
+             <div ng-messages="authUserForm.firstName.$error" ng-if="authUserForm.firstName.$dirty">
                  <p ng-message="required" class="error">User Name is required</p>
              </div>
          </div>
          <div class="form-group">
              <label for="password">Password</label>
-             <input type="text" class="form-control" id="password" name="password" placeholder="Password" ng-model="authUserVm.existingUser.password" required >
-             <div ng-messages="userForm.lastName.$error" ng-if="userForm.lastName.$dirty">
+             <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="authUserVm.existingUser.password" required >
+             <div ng-messages="authuserForm.lastName.$error" ng-if="authUserForm.lastName.$dirty">
                  <p ng-message="required" class="error">Last Name is required</p>
              </div>
          </div>
-         <button type="submit" class="btn btn-primary" ng-disabled="authForm.$invalid">Submit</button>
+         <button type="submit" class="btn btn-primary" ng-disabled="authUserForm.$invalid">SignIn</button>
          </div>
      </form>
+      </div>
  </div>
 </body>
 </html>

@@ -16,6 +16,7 @@
 
         self.createUser = createUser;
         self.authUser = authUser;
+        self.authAdmin = authAdmin;
 
 
         function createUser(user) {
@@ -27,6 +28,12 @@
             return $http.post(CONFIG.API_HOST + '/users/auth/user', user)
                 .then(successFn, errorFn);
         }
+
+        function authAdmin(admin) {
+            return $http.post(CONFIG.API_HOST + '/users/auth/admin', admin)
+                .then(successFn, errorFn);
+        }
+
 
 
         function successFn(response) {
