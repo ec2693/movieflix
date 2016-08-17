@@ -30,6 +30,15 @@ public class UserRepositoryImp  implements UserRepository{
 		return query.getSingleResult();
 		
 	}
+	
+	@Override
+	public User getAdmin(String adminUserName, String password) {
+		TypedQuery<User> query = em.createNamedQuery("Admin.find", User.class);
+		query.setParameter("pUserName", adminUserName);
+		query.setParameter("pPassword", password);
+		return query.getSingleResult();
+	}
+
 
 	@Override
 	public User getUserByUserName(String userName) {
@@ -63,4 +72,5 @@ public class UserRepositoryImp  implements UserRepository{
 		
 	}
 
+	
 }

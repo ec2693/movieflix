@@ -29,10 +29,22 @@ public class UserController {
 		return service.getUser(userName, password);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, path = "auth",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public boolean authUser(@RequestBody User user){
+	@RequestMapping(method = RequestMethod.GET, path = "admin/{adminUserName}/{password}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public User getAdmin(@PathVariable("adminUserName")String adminUserName, @PathVariable("password") String password){
+		return service.getAdmin(adminUserName, password);
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.POST, path = "auth/user",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public User authUser(@RequestBody User user){
 		return service.authUser(user);
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, path = "auth/admin",produces = MediaType.APPLICATION_JSON_UTF8_VALUE,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public User authAdmin(@RequestBody User user){
+		return service.authAdmin(user);
+	}
+	
 	
 	
 	@RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)

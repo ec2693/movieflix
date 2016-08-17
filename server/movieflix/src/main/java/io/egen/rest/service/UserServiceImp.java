@@ -34,16 +34,34 @@ public class UserServiceImp implements UserService {
 		}
 		return existing;
 	}
+     
      @Override
-	public boolean authUser(User user){
+ 	public User getAdmin(String adminUserName, String password) {
+    	 User existing = repository.getAdmin(adminUserName,password);
+ 		if(existing == null){
+ 			throw new UserDoesNotExistsException("User with username"  +adminUserName+"   and password"+password+"  doesn't exixts");
+ 		}
+ 		return existing;
+ 		
+ 	}
+     @Override
+	public User authUser(User user){
     	 User existing = repository.getUser(user.getUserName(),user.getPassword());
     	 if(existing != null){
-    		 return true;
+    		 return existing;
     	 }
-    	 return false;
-    	 
-		
+    	 return null;
 	}
+     
+     @Override
+ 	public User authAdmin(User user) {
+    	 User existing = repository.getAdmin(user.getUserName(),user.getPassword());
+    	 if(existing != null){
+    		 return existing;
+    	 }
+    	 return null;
+ 	}
+
 
 	@Override
 	@Transactional
@@ -76,6 +94,9 @@ public class UserServiceImp implements UserService {
 		repository.deleteUser(existing);
 		
 	}
+
+	
+	
 
 
 

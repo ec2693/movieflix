@@ -14,7 +14,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table
 
 @NamedQueries({
-	@NamedQuery(name = "User.find",query = "SELECT u FROM User u WHERE u.userName = :pUserName  AND u.password = :pPassword"),
+	@NamedQuery(name = "User.find",query = "SELECT u FROM User u WHERE u.userName = :pUserName  AND u.password = :pPassword AND u.role = 'USER' "),
+	@NamedQuery(name = "Admin.find",query = "SELECT u FROM User u WHERE u.userName = :pUserName  AND u.password = :pPassword AND u.role = 'ADMIN' "),
 	@NamedQuery(name = "User.findUserByUserName",query = "SELECT u FROM User u  WHERE u.userName =:pUserName"),
 	@NamedQuery(name = "User.findAllUser",query = "SELECT u FROM User u  WHERE u.role =:pRole")
 })

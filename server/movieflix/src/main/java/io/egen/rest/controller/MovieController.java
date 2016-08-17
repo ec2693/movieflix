@@ -88,7 +88,7 @@ public class MovieController {
 		return service.getAverageRatingByUsers(titleName);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.POST,path = "createTitle",produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie createMovie(@RequestBody Movie movie){
 		return service.createMovie(movie);
 	}
