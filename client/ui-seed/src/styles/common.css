@@ -1,0 +1,74 @@
+.header{
+    background-color:black;
+    width:100%;
+    height:80px;
+    margin:4px 2px;
+    border:2px solid coral;
+}
+
+#content{
+color: coral;
+padding:4px;
+text-align:center;
+font-size:3.0vw;
+
+}
+
+span.glyphicon-chevron-right{
+font-size: 5.0vw;
+color:coral;
+}
+
+h1{
+color:coral;
+}
+
+h3 {
+color: darkslateblue;
+font-size: 1.7vw;
+margin-left: 25px;
+
+}
+
+.row h3{
+    margin-left:0px;
+}
+
+
+.row p{
+    color:coral;
+    font-size:1.2vw;
+}
+
+.row strong{
+color:darkslateblue;
+}
+
+.row a{
+color:darkslateblue;
+text-decoration: none;
+font-size: 1.2vw;
+}
+
+.img-responsive{
+    position: auto;
+    width:100%;
+    margin:auto;
+    padding:1px;
+    border:2px solid darkslateblue;
+    }
+
+.thumbnail{
+padding:5px;
+
+}
+
+dd {
+    font-size: 1.2vw;
+    color: coral;
+}
+
+dt{
+color:darkslateblue;
+font-size:1.2vw;
+}

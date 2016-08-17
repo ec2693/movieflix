@@ -11,10 +11,10 @@
         <p id = "content">Details</p>
     </div>
     <div class = "row">
-        <div class="col-xs-4">
+        <div class=" col-xs-offset-1 col-xs-4">
             <a href="#"><img class = "img-responsive" ng-src="http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg" /></a>
         </div>
-        <div class="col-xs-8">
+        <div class=" col-xs-offset-1 col-xs-4">
             <dl>
                 <dt>Title</dt>
                 <dd>{{titleDetailVm.movie.title}}<br/><br/></dd>
@@ -45,10 +45,10 @@
                 <dd>{{titleDetailVm.movie.language}}<br/><br/></dd>
                 <dd><a href = "https://www.imdb.com/title/{{titleDetailVm.imdb.imdbId}}">ImdbReviews</a><br/><br/></dd>
                 <dt>User Reviews</dt>
-                <div class = "review" ng-repeat="review in titleDetailVm.review">
+                <div class = "review" ng-repeat="review in titleDetailVm.review | limitTo:2">
                 <dd>{{review.comments}}</dd>
                 </div>
-                <a href = "Reviews.html"> More..</a>
+                <a href = "#/reviews/getReviewsFor/{{titleDetailVm.movie.id}}"> More..</a>
             </dl>
             <p id = "plot"><strong>Plot:</strong>{{titleDetailVm.movie.plot}}</p>
         </div>

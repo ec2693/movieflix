@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class = "header">
+        <p id="content">Movies</p>
+    </div>
+    <div class = "row">
+        <div class = "col-xs-8">
+            <form class="form-inline" role="form">
+                <div class = "col-xs-4" >
+                    <input type="text" class="form-control"  placeholder ="Enter Title Name">
+                    <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                </div>
+            </form>
+        </div>
+        <div class = "col-xs-2">
+            <div class="btn-group" uib-dropdown>
+                <button class="btn btn-primary " type="button" uib-dropdown-toggle>SearchByGenre
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby = "single-button" ng-model="mySelect" ng-change="titlesVm.showSelectValue(mySelect)">
+                    <li><a href="">Action</a></li>
+                    <li><a href="">Adventure</a></li>
+                    <li><a href="">Sci-Fi</a></li>
+                    <li><a href="">Fantasy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class = "col-xs-2">
+            <div class="btn-group" uib-dropdown>
+                <button class="btn btn-primary " type="button" uib-dropdown-toggle> SortBy
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby = "single-button">
+                    <li><a href="#">Year</a></li>
+                    <li><a href="#">Imdb Ratings </a></li>
+                    <li><a href="#">Imdb Votes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div ng-repeat="movie in movieVm.movies">-->
+    <div>
+        <div class = "row" ng-repeat="movie in titlesVm.moviesOfGenre">
+            <div class="col-xs-2">
+                <a href = "#/titles/findTitleById/{{movie.id}}"><img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg"/></a>
+            </div>
+            <div class = "col-xs-8">
+                <h3>{{movie.title}}</h3>
+                <p class = "plot"><strong>Plot:</strong>{{movie.plot}}</p>
+                <p class = "plot"><strong>Metascore:</strong>{{movie.metascore}}/100</p>
+                <p class = "plot"><strong>User Average Rating: </strong>4/5</p>
+                <a href = "#/titles/findTitleById/{{movie.id}}">More..</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

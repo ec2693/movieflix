@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class = "container">
+        <div class = "header">
+             <p id = "content"> Reviews For {{titleDetailVm.review[0].movie.title}}</p>
+        </div>
+        <div class = "review" ng-repeat = "review in titleDetailVm.review">
+            <div class = "row" >
+                <div class="col-xs-2">
+                     <span class="glyphicon glyphicon-user"></span>
+                </div>
+                <div class="col-xs-2">
+                     <p class = "name">{{review.user.firstName}} {{review.user.lastName}}</p>
+                </div>
+            </div>
+            <div class = "row" >
+                <div class="col-xs-2">
+                    <span class="glyphicon glyphicon-comment"></span>
+                </div>
+                <div class="col-xs-6">
+                     <p class = "comment">{{review.comments}}</p>
+                </div>
+            </div>
+            <div class = "row" >
+                 <div class="col-xs-2">
+                     <p>Ratings</p>
+                </div>
+                <div class="col-xs-2">
+                     <p class = "rating" >
+                         <!--<span class="glyphicon glyphicon-star"></span>-->
+                         {{review.ratings}}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <a href = "#/reviews/{{titleDetailVm.review[0].movie.id}}"> Add Review </a>
+            <!--<button type="button" class="btn btn-default" ng-click ="isCollapsed = !isCollapsed">Add Review</button>-->
+        </div>
+        <!--<div uib-collapse="isCollapsed">-->
+            <!--<div class ="row">-->
+                <!--<form name="reviewForm" ng-submit="reviewForm.$setPristine(); addReviewVm.addReview()" novalidate>-->
+                    <!--<div class = "col-xs-4">-->
+                        <!--<div class="form-group">-->
+                            <!--<label for ="comment">Comment</label>-->
+                            <!--<input type="text" class="form-control" id = "comment" name = "comment" placeholder = "comment" ng-model="addReviewVm.newReview.comments" required>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for ="ratings">Rating</label>-->
+                            <!--<select class="form-control" id="ratings" name = "ratings" ng-model = "addReview.newReview.ratings">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <!--<button type="submit" class="btn btn-primary" ng-disabled="reviewForm.$invalid">Add Review</button>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div class = "container">
+             <form name="reviewForm" ng-submit="reviewForm.$setPristine(); addReviewVm.addReview()" novalidate>
+                 <div class = "col-xs-4">
+                     <div class="form-group">
+                         <label for ="comment">Comment</label>
+                         <input type="text" class="form-control" id = "comment" name = "comment" placeholder = "comment" ng-model="addReviewVm.newReview.comments" required>
+                     </div>
+                     <div class="form-group">
+                         <label for ="ratings">Rating</label>
+                         <select class="form-control" id="ratings" name = "ratings" ng-model = "addReviewVm.newReview.ratings">
+                             <option>1</option>
+                             <option>2</option>
+                             <option>3</option>
+                             <option>4</option>
+                             <option>5</option>
+                         </select>
+                     </div>
+                     <button type="submit" class="btn btn-primary" ng-disabled="reviewForm.$invalid">Add Review</button>
+                 </div>
+             </form>
+ </div>
+
+</body>
+</html>

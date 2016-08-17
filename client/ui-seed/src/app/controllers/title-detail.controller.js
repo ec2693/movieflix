@@ -9,6 +9,7 @@
     function TitleDetailController(titleService, reviewService,$routeParams) {
         var titleDetailVm = this;
 
+
         init();
 
         function init() {
@@ -30,7 +31,7 @@
                 .getAllReviewsForMovie($routeParams.id)
                 .then(function(review) {
                     titleDetailVm.review = review;
-                    console.dir(titleDetailVm.review)
+                    console.log(titleDetailVm.review);
                 }, function (error) {
                     console.log(error);
 

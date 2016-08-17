@@ -10,6 +10,7 @@
         var self = this;
 
         self.getAllReviewsForMovie = getAllReviewsForMovie;
+        self.createMovieReview = createMovieReview;
 
 
         function getAllReviewsForMovie(id){
@@ -17,6 +18,11 @@
                 .then(successFn, errorFn);
         }
 
+        function createMovieReview(review){
+            return $http.post(CONFIG.API_HOST + '/reviews/' , review)
+                .then(successFn, errorFn);
+
+        }
 
         function successFn(response) {
             return response.data;

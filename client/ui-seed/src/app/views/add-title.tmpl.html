@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel = "stylesheet" href = "AddTitle.css">
+</head>
+<body>
+<div class = "container">
+    <div class = "addTitle">
+    <div class = "header">
+        <div class = "row">
+            <div class = " col-sm-offset-1 col-xs-11">
+                <h1 class = "content"> <span class="glyphicon glyphicon-plus"></span> Add Title To Movieflix</h1>
+            </div>
+        </div>
+    </div>
+    <form class="form-horizontal" role="form" name="titleForm" novalidate>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="text" class="form-control" id="title" name = "title" placeholder ="Enter Title Name" ng-model = "addTitleVm.newTitle.title">
+            </div>
+            <div class=" col-sm-4">
+                <input type="text" class="form-control" id="releasedDate" name = "releasedDate" placeholder ="Enter Released Date" ng-model = "addTitleVm.newTitle.released">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" col-sm-offset-2 col-sm-4">
+                <input type="text" class="form-control" id="country" name = "country" placeholder ="Enter Country" ng-model = "addTitleVm.newTitle.country">
+            </div>
+            <div class=" col-sm-4">
+                <input type="text" class="form-control" id="language" name = "language" placeholder ="Enter Language" ng-model ="addTitleVm.newTitle.language">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" col-sm-offset-2 col-sm-4">
+                <input type="number" class="form-control" id="imdbVotes" name = "imdbVotes" placeholder ="Enter Imdb Votes" ng-model = "addTitleVm.newTitle.imdb.imdbVotes">
+            </div>
+            <div class=" col-sm-4">
+                <input type="number" class="form-control" id="imdbRating" name = "imdbRating" placeholder ="Enter Imdb Ratings" ng-model = "addTitleVm.newTitle.imdb.imdbRating">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="number" class="form-control" id="runtime" name = "runtime" placeholder ="Enter Run Time" ng-model = "addTitleVm.newTitle.runtime">
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="award" name = "award" placeholder ="Enter Awards" ng-model = "addTitleVm.newTitle.award" >
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="url" class="form-control" id="posterLink" name = "posterLink" placeholder ="Enter Poster URL" ng-model = "addTitleVm.newTitle.poster">
+            </div>
+            <div class=" col-sm-4">
+                <select class="form-control" title = "type" id="type" name = "type"  ng-model = "addTitleVm.newTitle.type">
+                    <option ng-selected>Type</option>
+                    <option value = "Movie">Movie</option>
+                    <option value = "Series">Series</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="text" class="form-control" id="plot" name = "plot" placeholder ="Enter Plot" ng-model = "addTitleVm.newTitle.plot">
+            </div>
+            <div class=" col-sm-4">
+                <div class="btn-group" uib-dropdown>
+                    <button id="single-button" type="button" class="btn btn-primary"  uib-dropdown-toggle ng-disabled="disabled">
+                        Select Genre <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                        <li><label><input type="checkbox" value="Action" ng-model="addTitleVm.newTitle.genre.genreType">&nbsp &nbsp;Action</label></li>
+                        <li><label><input type="checkbox" value="Adventure" ng-model="addTitleVm.newTitle.genre.genreType">&nbsp &nbsp;Adventure</label></li>
+                        <li><label><input type="checkbox" value="Sci-Fi" ng-model="addTitleVm.newTitle.genre.genreType">&nbsp &nbsp;Sci-Fi</label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="number" class="form-control" id="metascore" name = "metascore" placeholder ="Enter Metascore" ng-model = "addTitleVm.newTitle.metascore">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="number" class="form-control" id="year" name = "year" placeholder ="Enter Year" ng-model = "addTitleVm.newTitle.year">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <input type="text" class="form-control" id="rated" name = "rated" placeholder ="Enter Rated value" ng-model = "addTitleVm.newTitle.rated">
+            </div>
+        </div>
+        <!--<div class="form-group">-->
+            <!--<div class="col-sm-offset-2 col-sm-4">-->
+                <!--<input type="text" class="form-control" id="castName1" name = "castName1" placeholder ="Enter Cast Name1" ng-model = "addTitleVm.newTitle.cast.castName">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<div class="col-sm-offset-2 col-sm-4">-->
+                <!--<input type="text" class="form-control" id="castType1" name = "castType1" placeholder ="Enter Cast Type1" ng-model = "addTitleVm.newTitle.cast.castType">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <!--<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#addCast">Add Cast</button>-->
+                <button type="button" class="btn btn-default" ng-click ="isCollapsed = !isCollapsed" >Add Cast</button>
+            </div>
+            <div uib-collapse="isCollapsed">
+                <div class ="row">
+                    <form class = "form-horizontal" role="form" name = "castForm">
+                        <div class = "col-sm-2">
+                            <div class="form-group">
+                                <select class="form-control" title = "castType" id="castType" name = "castType" ng-model = "addTitleVm.newCast.castType">
+                                    <option value = "Actor">Actor</option>
+                                    <option value = "Writer">Writer</option>
+                                    <option  value = "Director">Director</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class = "col-sm-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id = "castName" name = "castName" ng-model = "addTitleVm.newCast.castName">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click = "addTitleVm.addCast()" ng-disabled="castForm.$invalid">Add Cast</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click ="titleForm.$setPristine(); addTitleVm.addTitle()" ng-disabled="titleForm.$invalid">Add title</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>
