@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.egen.rest.entity.Cast;
-import io.egen.rest.exception.MovieDoesNotExistsException;
+import io.egen.rest.exception.ResourceNotFoundException;
 import io.egen.rest.repository.CastRepository;
 
 @Service
@@ -20,7 +20,7 @@ public class CastServiceImp implements CastService {
 	public Cast getCast(String castId) {
 		 Cast existing = repository.getCast(castId);
 		  if(existing == null){
-			throw new MovieDoesNotExistsException("Cast Does Not Exists");
+			throw new ResourceNotFoundException("Cast Does Not Exists");
 		}
 		return existing;
 	}

@@ -83,9 +83,9 @@ public class MovieController {
 	}
 	
 	
-	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForTitle/{titleName}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Double getAverageRatingByUsers(@PathVariable("titleName") String titleName){
-		return service.getAverageRatingByUsers(titleName);
+	@RequestMapping(method = RequestMethod.GET, path = "getAverageRatingForTitle/{titleId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Double getAverageRatingByUsers(@PathVariable("titleId") String titleId){
+		return service.getAverageRatingByUsers(titleId);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST,path = "createTitle",produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)

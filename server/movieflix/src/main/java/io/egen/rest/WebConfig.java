@@ -16,7 +16,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 				.allowedOrigins("*")
 				.allowedHeaders("Authorization", "Origin", "Content-Type")
 				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-				.allowCredentials(false)
-				.maxAge(3600);
+				.allowCredentials(false);
+//				.maxAge(3600);
     }
 }

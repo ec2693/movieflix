@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import io.egen.rest.entity.User;
+import io.egen.rest.exception.ResourceNotFoundException;
 //import io.egen.rest.exception.UserAlreadyExistsException;
-import io.egen.rest.exception.UserDoesNotExistsException;
 import io.egen.rest.repository.UserRepository;
 
 @Service
@@ -30,7 +30,7 @@ public class UserServiceImp implements UserService {
 	public User getUser(String userName, String password) {
 		User existing = repository.getUser(userName,password);
 		if(existing == null){
-			throw new UserDoesNotExistsException("User with username"  +userName+"   and password"+password+"  doesn't exixts");
+			throw new ResourceNotFoundException("User with username"  +userName+"   and password"+password+"  doesn't exixts");
 		}
 		return existing;
 	}
@@ -39,7 +39,7 @@ public class UserServiceImp implements UserService {
  	public User getAdmin(String adminUserName, String password) {
     	 User existing = repository.getAdmin(adminUserName,password);
  		if(existing == null){
- 			throw new UserDoesNotExistsException("User with username"  +adminUserName+"   and password"+password+"  doesn't exixts");
+ 			throw new ResourceNotFoundException("User with username"  +adminUserName+"   and password"+password+"  doesn't exixts");
  		}
  		return existing;
  		
@@ -79,7 +79,7 @@ public class UserServiceImp implements UserService {
 	public User updateUser(String userId, User user) {
 		User existing = repository.getUserByUserId(userId);
 		if(existing == null){
-			throw new UserDoesNotExistsException("User with userId"  +userId+"  doesn't exixts");
+			throw new ResourceNotFoundException("User with userId"  +userId+"  doesn't exixts");
 		}
 		return repository.updateUser(user);
 	}
@@ -89,7 +89,7 @@ public class UserServiceImp implements UserService {
 	public void deleteUser(String userId) {
 		User existing = repository.getUserByUserId(userId);
 		if(existing == null){
-			throw new UserDoesNotExistsException("User with userId"  +userId+"  doesn't exixts");
+			throw new ResourceNotFoundException("User with userId"  +userId+"  doesn't exixts");
 		}
 		repository.deleteUser(existing);
 		

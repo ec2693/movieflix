@@ -22,8 +22,8 @@ public class MovieRepositoryImp implements MovieRepository{
 	}
 	
 	@Override
-	public Movie findById(String movieId) {
-		return em.find(Movie.class, movieId);
+	public Movie findById(String titleId) {
+		return em.find(Movie.class, titleId);
 		
 	}
 

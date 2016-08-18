@@ -1,6 +1,7 @@
 .form-control{
     border:2px solid coral;
     background-color: gainsboro;
+    margin:2.0%;
 }
 
 h1{
@@ -66,4 +67,28 @@ body{
 .custom-select{
     width:150px;
     height:25px;
+}
+
+.btn-default {
+    width:25%;
+    border:2px solid coral;
+    background-color: gainsboro;
+    text-align:left;
+}
+
+.btn{
+    font-size: 1.1vw ;
+    margin:2.5%;
+
+
+}
+.caret{
+   margin-right: 2%;
+
+}
+.dropdown-menu{
+    margin-left: 4%;
+    background-color: gainsboro;
+    border:2px solid coral;
+
 }

@@ -9,8 +9,8 @@ import io.egen.rest.entity.Cast;
 import io.egen.rest.entity.Genre;
 import io.egen.rest.entity.Imdb;
 import io.egen.rest.entity.Movie;
-import io.egen.rest.exception.MovieAlreadyExistsException;
-import io.egen.rest.exception.MovieDoesNotExistsException;
+import io.egen.rest.exception.ResourceAlreadyExistsException;
+import io.egen.rest.exception.ResourceNotFoundException;
 import io.egen.rest.repository.MovieRepository;
 
 @Service
@@ -40,7 +40,7 @@ public class MovieServiceImp implements MovieService {
 	public Movie findById(String movieId) {
 		Movie existing = repository.findById(movieId);
 		if(existing == null){
-			throw new MovieDoesNotExistsException("Movie with id  "+movieId+ "  doesn't exixts");
+			throw new ResourceNotFoundException("Movie with id  "+movieId+ "  doesn't exixts");
 		}
 		return existing;
 	}
@@ -49,7 +49,7 @@ public class MovieServiceImp implements MovieService {
 	public Movie findByTitle(String title) {
 		Movie existing = repository.findByTitle(title);
 			if(existing == null){
-				throw new MovieDoesNotExistsException("Movie with title  "+title+ "  doesn't exixts");
+				throw new ResourceNotFoundException("Movie with title  "+title+ "  doesn't exixts");
 			}
 		return existing;
 	}
@@ -101,8 +101,8 @@ public class MovieServiceImp implements MovieService {
 	}
 
 	@Override
-	public Double getAverageRatingByUsers(String titleName) {
-	  Movie movie =	repository.findByTitle(titleName);
+	public Double getAverageRatingByUsers(String titleId) {
+	  Movie movie =	repository.findById(titleId);
 	   return mRService.getAverageRating(movie);
 	}
 
@@ -111,7 +111,7 @@ public class MovieServiceImp implements MovieService {
 	public Movie createMovie(Movie movie) {
 		Movie existing = repository.findByTitle(movie.getTitle());
 		if(existing != null){
-			throw new MovieAlreadyExistsException("Movie Already Exists");
+			throw new ResourceAlreadyExistsException("Movie Already Exists");
 		}
 		 List<Cast> cast = movie.getCast();
 			 cService.createCast(cast);
@@ -127,7 +127,7 @@ public class MovieServiceImp implements MovieService {
 	public Movie updateMovie(String movieId, Movie movie) {
 		Movie existing = repository.findById(movieId);
 		 if(existing == null){
-			 throw new MovieDoesNotExistsException("Movie with id  "+movieId+ "  doesn't exists");
+			 throw new ResourceNotFoundException("Movie with id  "+movieId+ "  doesn't exists");
 		 }
 		 List<Cast> cast = movie.getCast();
 		   cService.updateCast(cast);
@@ -143,7 +143,7 @@ public class MovieServiceImp implements MovieService {
 	public void deleteMovie(String movieId) {
 		Movie existing = repository.findById(movieId);
 		 if(existing == null){
-			 throw new MovieDoesNotExistsException("Movie with id  "+movieId+ "  doesn't exists");
+			 throw new ResourceNotFoundException("Movie with id  "+movieId+ "  doesn't exists");
 		 }
 		 List<Cast> cast = existing.getCast();
 		     cService.deleteCast(cast);

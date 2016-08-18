@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import io.egen.rest.entity.Movie;
 import io.egen.rest.entity.MovieReview;
 import io.egen.rest.entity.User;
-import io.egen.rest.exception.ReviewAlreadyExistsException;
-import io.egen.rest.exception.ReviewDoesNotExistsException;
+import io.egen.rest.exception.ResourceAlreadyExistsException;
+import io.egen.rest.exception.ResourceNotFoundException;
 import io.egen.rest.repository.MovieReviewRepository;
 
 @Service
@@ -66,17 +66,16 @@ public class MovieReviewServiceImp implements MovieReviewService{
 		if(movie !=null  && user!=null){
 		MovieReview existing = repository.getReviewByUserForMovie(user,movie);
 		if(existing != null){
-			throw new ReviewAlreadyExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" by user"+movieReview.getUser().getUserName()+"  already exist");
+			throw new ResourceAlreadyExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" by user"+movieReview.getUser().getUserName()+"  already exist");
 		}
-	else
-	{
-		  movieReview.setMovie(movie);
-		  movieReview.setUser(user);
-		return repository.createMovieReview(movieReview);
-	   }
+	    else{
+		   	movieReview.setMovie(movie);
+		   	movieReview.setUser(user);
+		   	return repository.createMovieReview(movieReview);
+	   		}
 		}
 		else{
-			throw new ReviewAlreadyExistsException("User or Movie doesnt exists");
+			throw new ResourceNotFoundException("User or Movie doesnt exists");
 		}
 	}
 
@@ -87,7 +86,7 @@ public class MovieReviewServiceImp implements MovieReviewService{
 		String userId = movieReview.getUser().getId();
 		MovieReview existing = repository.getMovieReviewById(movieReviewId);
 		if(existing == null){
-			throw new ReviewDoesNotExistsException("Review for movie   "+movieReview.getMovie().getTitle()+" doesn't exist");
+			throw new ResourceNotFoundException("Review for movie   "+movieReview.getMovie().getTitle()+" doesn't exist");
 		}
 		else{
 			Movie movie = mService.findById(movieId);
@@ -103,7 +102,7 @@ public class MovieReviewServiceImp implements MovieReviewService{
 	public void deleteMovieReviewById(String movieReviewId) {
 		MovieReview existing = repository.getMovieReviewById(movieReviewId);
 		if(existing == null){
-			throw new ReviewDoesNotExistsException("MovieReview doesn't exist");
+			throw new ResourceNotFoundException("MovieReview doesn't exist");
 		}
 			repository.deleteMovieReview(existing);
 			
@@ -117,7 +116,7 @@ public class MovieReviewServiceImp implements MovieReviewService{
 		User user = uService.getUserByUserId(userId);	
 		MovieReview existing = repository.getReviewByUserForMovie(user,movie);
 		if(existing == null){
-			throw new ReviewDoesNotExistsException("Review for movie   "+movieId+" by user"+userId+"  doesn't exist");
+			throw new ResourceNotFoundException("Review for movie   "+movieId+" by user"+userId+"  doesn't exist");
 		}
 		repository.deleteMovieReview(existing);
 	}
