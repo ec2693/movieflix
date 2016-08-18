@@ -23,7 +23,7 @@
                 .authAdmin(authAdminVm.admin)
                 .then(function(data) {
                     console.log(data);
-                    $location.path('/titles');
+                    $location.path('/AllTitles');
                 }, function(error) {
                     console.log(error);
                 })

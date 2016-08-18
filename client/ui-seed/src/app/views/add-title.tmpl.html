@@ -7,15 +7,12 @@
 </head>
 <body>
 <div class = "container">
-    <div class = "addTitle">
-    <div class = "header">
-        <div class = "row">
-            <div class = " col-sm-offset-1 col-xs-11">
-                <h1 class = "content"> <span class="glyphicon glyphicon-plus"></span> Add Title To Movieflix</h1>
-            </div>
-        </div>
+    <div class ="header">
+        <p id="content"><span class="glyphicon glyphicon-plus"></span> Add Title To Movieflix</p>
+        <img class = "img-responsive" src = "/images/popcorn.jpg">
     </div>
-    <form class="form-horizontal" role="form" name="titleForm" novalidate>
+    <div class = "content">
+    <div class="form-horizontal" role="form" name="titleForm" novalidate>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
                 <input type="text" class="form-control" id="title" name = "title" placeholder ="Enter Title Name" ng-model = "addTitleVm.newTitle.title">
@@ -109,7 +106,7 @@
             </div>
             <div uib-collapse="isCollapsed">
                 <div class ="row">
-                    <form class = "form-horizontal" role="form" name = "castForm">
+                    <div class = "form-horizontal" role="form" name = "castForm">
                         <div class = "col-sm-2">
                             <div class="form-group">
                                 <select class="form-control" title = "castType" id="castType" name = "castType" ng-model = "addTitleVm.newCast.castType">
@@ -125,12 +122,13 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" ng-click = "addTitleVm.addCast()" ng-disabled="castForm.$invalid">Add Cast</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class = "col-sm-offset-2 col-sm-4">
         <button type="submit" class="btn btn-primary" ng-click ="titleForm.$setPristine(); addTitleVm.addTitle()" ng-disabled="titleForm.$invalid">Add title</button>
-    </form>
+        </div>
     </div>
 </div>
 </body>

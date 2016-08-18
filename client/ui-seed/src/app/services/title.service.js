@@ -17,6 +17,7 @@
          self.getTitlesByTypeAndGenre = getTitlesByTypeAndGenre;
          self.getAverageRatingForTitle = getAverageRatingForTitle;
          self.createTitle = createTitle;
+         self.deleteTitle = deleteTitle;
 
         function getAllTitles(){
             return $http.get(CONFIG.API_HOST + '/titles')
@@ -50,6 +51,11 @@
 
         function createTitle(title){
             return $http.post(CONFIG.API_HOST + '/titles/createTitle', title)
+                .then(successFn, errorFn);
+        }
+
+        function deleteTitle(id){
+            return $http.delete(CONFIG.API_HOST + '/titles/' + id)
                 .then(successFn, errorFn);
         }
 

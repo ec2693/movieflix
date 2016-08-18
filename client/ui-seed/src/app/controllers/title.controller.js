@@ -4,10 +4,11 @@
     angular.module('movieflix')
         .controller('TitleController', TitleController);
 
-    TitleController.$inject = ['titleService','$location'];
+    TitleController.$inject = ['titleService','$location','$routeParams'];
 
-    function TitleController(titleService,$location) {
+    function TitleController(titleService,$location,$routeParams) {
         var titlesVm = this;
+        titlesVm.deleteTitle = deleteTitle;
         titlesVm.showSelectValue = showSelectValue;
         // titlesVm.clicked = clicked;
         titlesVm.genreTitles = genreTitles;
@@ -26,8 +27,12 @@
         init();
 
         function init() {
-            console.log('TitleController');
+            console.log('In TitleController');
 
+            titlesVm.sorter = {
+                sortBy: 'title',
+                sortOrder: false
+            };
 
             titleService
                 .getMovies()
@@ -50,13 +55,7 @@
                 }, function (error) {
                     console.log(error);
                 });
-            // titleService
-            //     .getAverageRatingForTitle(id)
-            //     .then(function (rating) {
-            //         titlesVm.rating = rating;
-            //     }, function (error) {
-            //         console.log(error);
-            //     });
+
 
             // titleService
             //     .getTitlesByTypeAndGenre(titlesVm.genreType)
@@ -67,8 +66,18 @@
             //     });
         }
 
-        function genreTitles() {
 
+        function deleteTitle(id){
+            titleService
+                .deleteTitle(id)
+                .then(function (data) {
+                    $location.path('/AllTitles');
+                }, function (error) {
+                    console.log(error);
+                });
+        }
+
+        function genreTitles() {
         titleService
             .getTitlesByTypeAndGenre(titlesVm.genreType)
             .then(function (titles) {
@@ -80,6 +89,8 @@
 
             $location.path('/titles/findTitlesByTypeAndGenre/movie/' + titlesVm.genreType);
         }
+
+
     }
 
 })();/**

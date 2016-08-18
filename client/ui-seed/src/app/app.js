@@ -45,6 +45,11 @@
             controller: 'TitleController',
             controllerAs: 'titlesVm'
         })
+        .when('/AllTitles', {
+            templateUrl: 'app/views/title.tmpl.html',
+            controller: 'TitleController',
+            controllerAs: 'titlesVm'
+        })
         .when('/titles/createTitle', {
              templateUrl: 'app/views/add-title.tmpl.html',
              controller: 'AddTitleController',
@@ -66,6 +71,7 @@
             controller: 'AddReviewController',
             controllerAs: 'addReviewVm'
         })
+
 
 
         // .when('/titles/findTitlesByTypeAndGenre/movie/adventure', {

@@ -19,23 +19,34 @@
             </form>
         </div>
         <div class = "col-xs-2">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SearchByGenre
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Adventure</a></li>
-                    <li><a href="#">Sci-Fi</a></li>
-                </ul>
-            </div>
+            <!--<div class="btn-group" uib-dropdown>-->
+            <!--<button class="btn btn-primary " type="button" uib-dropdown-toggle>SearchByGenre-->
+            <!--<span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby = "single-button" data-ng-model ="titlesVm.genre">-->
+            <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/action">Action</a></li>-->
+            <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/adventure">Adventure</a></li>-->
+            <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/sci-fi">Sci-Fi</a></li>-->
+            <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/fantasy">Fantasy</a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <form name = "dropdown">
+                <select class="form-control" title = "type" id="type" name = "type" ng-model="mySelect" ng-change="titlesVm.showSelectValue(mySelect)">
+                    <!--<option ng-selected>Type</option>-->
+                    <option value = "Action">Action</option>
+                    <option value = "Adventure">Adventure</option>
+                    <option value = "Sci-Fi">Sci-Fi</option>
+                    <option value = "Fantasy">Fantasy</option>
+                </select>
+                <input type=button value="Go" ng-click="titlesVm.genreTitles()" >
+            </form>
         </div>
         <div class = "col-xs-2">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+            <div class="btn-group" uib-dropdown>
+                <button class="btn btn-primary " type="button" uib-dropdown-toggle > SortBy
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby = "single-button">
                     <li><a href="#">Year</a></li>
                     <li><a href="#">Imdb Ratings </a></li>
                     <li><a href="#">Imdb Votes</a></li>

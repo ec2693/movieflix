@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div class ="header">
+        <p id="content">All Titles</p>
+    </div>
+    <div class = "row">
+         <div class = "col-xs-4">
+          <a href="#/titles/createTitle"><span class = "glyphicon glyphicon-plus"></span>Add Title</a>
+         </div>
+         <div class = " col-sm-offset-4 col-xs-4">
+            <input type="search" ng-model="titlesVm.searchText.title" placeholder="Search For Title" class="form-control">
+         </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th ng-click="usersVm.changeSort('firstName')">Title</th>
+            <th ng-click="usersVm.changeSort('email')">Released date</th>
+            <th ng-click="usersVm.changeSort('address.city')">Rated</th>
+            <th ng-click="usersVm.changeSort('company.name')">Metascore</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="title in titlesVm.titles | filter:titlesVm.searchText | orderBy:titlesVm.sorter.by:titlesVm.sorter.reverse">
+            <td><a ng-href="#/titles/findTitleById/{{title.id}}"><img class = "img -responsive" ng-src="{{title.poster}}"></a></td>
+            <td>{{title.title}}</td>
+            <td>{{title.released}}</td>
+            <td>{{title.rated}}</td>
+            <td>{{title.metascore}}</td>
+            <td><i ng-click="titlesVm.deleteTitle(title.id)"> <span class="glyphicon glyphicon-trash"></span></i></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
