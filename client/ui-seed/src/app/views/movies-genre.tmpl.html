@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class = "header">
+        <p id="content">Movies</p>
+    </div>
+    <div>
+        <div class = "row" ng-repeat="movie in moviesGenreVm.movies">
+            <div class="col-xs-2">
+                <div class = "thumbnail">
+                <a href = "#/titles/findTitleById/{{movie.id}}"><img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg"/></a>
+                </div>
+            </div>
+            <div class = "col-xs-8">
+                <h3>{{movie.title}}</h3>
+                <p class = "plot"><strong>Plot:</strong>{{movie.plot}}</p>
+                <p class = "plot"><strong>Metascore:</strong>{{movie.metascore}}/100</p>
+                <a href = "#/titles/findTitleById/{{movie.id}}">More..</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

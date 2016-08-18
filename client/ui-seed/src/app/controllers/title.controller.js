@@ -8,27 +8,14 @@
 
     function TitleController(titleService,$location,$routeParams) {
         var titlesVm = this;
+        titlesVm.showMovieGenre = showMovieGenre;
+        titlesVm.showSeriesGenre = showSeriesGenre;
         titlesVm.deleteTitle = deleteTitle;
-        titlesVm.showSelectValue = showSelectValue;
-        // titlesVm.clicked = clicked;
-        titlesVm.genreTitles = genreTitles;
-
-
-        function showSelectValue(mySelect) {
-            titlesVm.genreType = mySelect;
-            console.log(titlesVm.genreType);
-        }
-
-        // function clicked() {
-        //     $location.path('/titles/findTitlesByTypeAndGenre/movie/' + titlesVm.genreType);
-        // }
-
 
         init();
 
         function init() {
             console.log('In TitleController');
-
             titlesVm.sorter = {
                 sortBy: 'title',
                 sortOrder: false
@@ -55,17 +42,7 @@
                 }, function (error) {
                     console.log(error);
                 });
-
-
-            // titleService
-            //     .getTitlesByTypeAndGenre(titlesVm.genreType)
-            //     .then(function(titles){
-            //         titlesVm.moviesOfGenre = titles;
-            //     }, function(error) {
-            //         console.log(error);
-            //     });
         }
-
 
         function deleteTitle(id){
             titleService
@@ -77,17 +54,16 @@
                 });
         }
 
-        function genreTitles() {
-        titleService
-            .getTitlesByTypeAndGenre(titlesVm.genreType)
-            .then(function (titles) {
-                titlesVm.moviesOfGenre = titles;
-                console.log(titlesVm.moviesOfGenre);
-            }, function (error) {
-                console.log(error);
-            });
+        function showMovieGenre(movieGenre) {
+            var genreType = movieGenre;
+            console.log('/titles/findTitlesByTypeAndGenre/movie/'+ genreType);
+            $location.path('/titles/findTitlesByTypeAndGenre/movie/'+ genreType);
+        }
 
-            $location.path('/titles/findTitlesByTypeAndGenre/movie/' + titlesVm.genreType);
+        function showSeriesGenre(seriesGenre) {
+            var genreType = seriesGenre;
+            console.log('/titles/findTitlesByTypeAndGenre/series/'+ genreType);
+            $location.path('/titles/findTitlesByTypeAndGenre/series/'+ genreType);
         }
 
 
@@ -96,3 +72,9 @@
 })();/**
  * Created by Era on 8/12/16.
  */
+
+
+
+
+
+

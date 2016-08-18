@@ -6,8 +6,12 @@
 </head>
 <body>
  <div class = "container">
+     <div class ="header">
+         <p id="content">Add Review</p>
+     </div>
+     <div class = "content">
              <form name="reviewForm" ng-submit="reviewForm.$setPristine(); addReviewVm.addReview()" novalidate>
-                 <div class = "col-xs-4">
+                 <div class = " col-xs-offset-4 col-xs-4">
                      <div class="form-group">
                          <label for ="comment">Comment</label>
                          <input type="text" class="form-control" id = "comment" name = "comment" placeholder = "comment" ng-model="addReviewVm.newReview.comments" required>
@@ -25,7 +29,7 @@
                      <button type="submit" class="btn btn-primary" ng-disabled="reviewForm.$invalid">Add Review</button>
                  </div>
              </form>
+     </div>
  </div>
-
 </body>
 </html>

@@ -10,53 +10,36 @@
         <p id="content">Movies</p>
     </div>
     <div class = "row">
-        <div class = "col-xs-8">
+        <div class = "col-xs-4">
             <form class="form-inline" role="form">
                 <div class = "col-xs-4" >
-                    <input type="text" class="form-control"  placeholder ="Enter Title Name">
-                    <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                    <input type="search" ng-model="titlesVm.searchText.title" placeholder="Search For Title" class="form-control">
                 </div>
             </form>
         </div>
-        <div class = "col-xs-2">
-            <!--<div class="btn-group" uib-dropdown>-->
-                <!--<button class="btn btn-primary " type="button" uib-dropdown-toggle>SearchByGenre-->
-                    <!--<span class="caret"></span>-->
-                <!--</button>-->
-                <!--<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby = "single-button" data-ng-model ="titlesVm.genre">-->
-                    <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/action">Action</a></li>-->
-                    <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/adventure">Adventure</a></li>-->
-                    <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/sci-fi">Sci-Fi</a></li>-->
-                    <!--<li><a href="#/titles/findTitlesByTypeAndGenre/movie/fantasy">Fantasy</a></li>-->
-                <!--</ul>-->
-            <!--</div>-->
-            <form name = "dropdown">
-            <select class="form-control" title = "type" id="type" name = "type" ng-model="mySelect" ng-change="titlesVm.showSelectValue(mySelect)">
-                <!--<option ng-selected>Type</option>-->
-                <option value = "Action">Action</option>
-                <option value = "Adventure">Adventure</option>
-                <option value = "Sci-Fi">Sci-Fi</option>
-                <option value = "Fantasy">Fantasy</option>
-            </select>
-                <input type=button value="Go" ng-click="titlesVm.genreTitles()" >
+        <div class = " col-xs-offset-4 col-xs-2">
+            <form name = "dropdown" >
+                <select class="form-control" title = "genre" id="genre" name = "genre"  ng-model="movieGenre" ng-change="titlesVm.showMovieGenre(movieGenre)">
+                    <option value = "Action">Action</option>
+                    <option value = "Adventure">Adventure</option>
+                    <option value = "Sci-Fi">Sci-Fi</option>
+                    <option value = "Fantasy">Fantasy</option>
+                    <option value = "Horror">Horror</option>
+                </select>
             </form>
         </div>
-        <div class = "col-xs-2">
-            <div class="btn-group" uib-dropdown>
-                <button class="btn btn-primary " type="button" uib-dropdown-toggle > SortBy
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby = "single-button">
-                    <li><a href="#">Year</a></li>
-                    <li><a href="#">Imdb Ratings </a></li>
-                    <li><a href="#">Imdb Votes</a></li>
-                </ul>
-            </div>
+        <div class = "col-xs-offset-1 col-xs-1">
+            <form name = "dropdown" >
+                <select class="form-control" title = "other" id="other" name = "other"  ng-model="mySelect" ng-change="titlesVm.showMovieGenre(mySelect)">
+                    <option value = "year">Year</option>
+                    <option value = "ratings">Imdb Ratings</option>
+                    <option value = "votes">Imdb Votes</option>
+                </select>
+            </form>
         </div>
     </div>
-    <!--<div ng-repeat="movie in movieVm.movies">-->
     <div>
-        <div class = "row" ng-repeat="movie in titlesVm.movies">
+        <div class = "row" ng-repeat="movie in titlesVm.movies | filter:titlesVm.searchText | orderBy:titlesVm.sorter.by:titlesVm.sorter.reverse">
             <div class="col-xs-2">
                 <div class = "thumbnail">
                 <a href = "#/titles/findTitleById/{{movie.id}}"><img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg"/></a>
@@ -69,7 +52,7 @@
                 <a ng-href = "#/titles/findTitleById/{{movie.id}}">More..</a>
             </div>
         </div>
-     </div>
+    </div>
 </div>
 </body>
 </html>

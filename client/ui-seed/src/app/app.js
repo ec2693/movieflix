@@ -56,11 +56,6 @@
              controllerAs: 'addTitleVm'
 
         })
-        .when('/titles/findTitlesByTypeAndGenre/movie/:genreType', {
-            templateUrl: 'app/views/movie-genreSort-tmpl.html',
-            controller: 'TitleController',
-            controllerAs: 'titlesVm'
-        })
         .when('/reviews/getReviewsFor/:id', {
             templateUrl: 'app/views/movie-review.tmpl.html',
             controller: 'TitleDetailController',
@@ -71,36 +66,36 @@
             controller: 'AddReviewController',
             controllerAs: 'addReviewVm'
         })
-
-
+        .when('/titles/findTitlesByTypeAndGenre/movie/:genreType', {
+            templateUrl: 'app/views/movies-genre.tmpl.html',
+            controller: 'MoviesGenreController',
+            controllerAs: 'moviesGenreVm'
+        })
+        .when('/titles/findTitlesByTypeAndGenre/series/:genreType', {
+            templateUrl: 'app/views/series-genre.tmpl.html',
+            controller: 'SeriesGenreController',
+            controllerAs: 'seriesGenreVm'
+        })
 
         // .when('/titles/findTitlesByTypeAndGenre/movie/adventure', {
-        //     templateUrl: 'app/views/movie-genreSort-tmpl.html',
+        //     templateUrl: 'app/views/movies-genre.tmpl.html',
         //     controller: 'TitleController',
         //     controllerAs: 'titlesVm'
         // })
         // .when('/titles/findTitlesByTypeAndGenre/movie/fantasy', {
-        //     templateUrl: 'app/views/movie-genreSort-tmpl.html',
+        //     templateUrl: 'app/views/movies-genre.tmpl.html',
         //     controller: 'TitleController',
         //     controllerAs: 'titlesVm'
         // })
         // .when('/titles/findTitlesByTypeAndGenre/movie/sci-fi' , {
-        //     templateUrl: 'app/views/movie-genreSort-tmpl.html',
+        //     templateUrl: 'app/views/movies-genre.tmpl.html',
         //     controller: 'TitleController',
         //     controllerAs: 'titlesVm'
         //
         // })
-
-
-
-    // .when('/reviews/getReviewsFor/:id', {
-    //   templateUrl: 'app/views/title-details.tmpl.html',
-    //   controller: 'TitleDetailController',
-    //   controllerAs: 'titleDetailVm'
-    // })
-    // .otherwise({
-    //   redirectTo: '/users'
-    // })
+        // .otherwise({
+    //         redirectTo: '/users'
+    //     })
     ;
   }
 

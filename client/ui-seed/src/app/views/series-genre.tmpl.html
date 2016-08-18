@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class = "header">
+        <p id="content">Series</p>
+    </div>
+    <div>
+        <div class = "row" ng-repeat="series in seriesGenreVm.series">
+            <div class="col-xs-2">
+                <div class = "thumbnail">
+                    <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg"/></a>
+                </div>
+            </div>
+            <div class = "col-xs-8">
+                <h3>{{series.title}}</h3>
+                <p class = "plot"><strong>Plot:</strong>{{series.plot}}</p>
+                <p class = "plot"><strong>Metascore:</strong>{{series.metascore}}/100</p>
+                <a href = "#/titles/findTitleById/{{series.id}}">More..</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
