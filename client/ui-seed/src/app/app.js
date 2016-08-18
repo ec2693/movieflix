@@ -11,7 +11,7 @@
 
     $routeProvider
         .when('/users', {
-            templateUrl: 'app/views/add-user.tmpl.html',
+            templateUrl: 'app/views/addUser.tmpl.html',
             controller: 'AddUserController',
             controllerAs: 'addUserVm'
         })
@@ -21,7 +21,7 @@
             controllerAs: 'authUserVm'
         })
         .when('/users/auth/admin', {
-            templateUrl: 'app/views/auth-admin.tmpl.html',
+            templateUrl: 'app/views/authAdmin.tmpl.html',
             controller: 'AuthAdminController',
             controllerAs: 'authAdminVm'
         })
@@ -36,7 +36,7 @@
           controllerAs: 'titlesVm'
         })
         .when('/titles/findTitleById/:id', {
-          templateUrl: 'app/views/title-details.tmpl.html',
+          templateUrl: 'app/views/titleDetails.tmpl.html',
           controller: 'TitleDetailController',
           controllerAs: 'titleDetailVm'
         })
@@ -51,48 +51,46 @@
             controllerAs: 'titlesVm'
         })
         .when('/titles/createTitle', {
-             templateUrl: 'app/views/add-title.tmpl.html',
+             templateUrl: 'app/views/addTitle.tmpl.html',
              controller: 'AddTitleController',
              controllerAs: 'addTitleVm'
 
         })
         .when('/reviews/getReviewsFor/:id', {
-            templateUrl: 'app/views/movie-review.tmpl.html',
+            templateUrl: 'app/views/movieReview.tmpl.html',
             controller: 'TitleDetailController',
             controllerAs: 'titleDetailVm'
         })
         .when('/reviews/:id', {
-            templateUrl: 'app/views/add-review.tmpl.html',
+            templateUrl: 'app/views/addReview.tmpl.html',
             controller: 'AddReviewController',
             controllerAs: 'addReviewVm'
         })
         .when('/titles/findTitlesByTypeAndGenre/movie/:genreType', {
-            templateUrl: 'app/views/movies-genre.tmpl.html',
-            controller: 'MoviesGenreController',
-            controllerAs: 'moviesGenreVm'
+            templateUrl: 'app/views/genreMovies.tmpl.html',
+            controller: 'TitlesGenreController',
+            controllerAs: 'titlesGenreVm'
         })
         .when('/titles/findTitlesByTypeAndGenre/series/:genreType', {
-            templateUrl: 'app/views/series-genre.tmpl.html',
-            controller: 'SeriesGenreController',
-            controllerAs: 'seriesGenreVm'
+            templateUrl: 'app/views/genreSeries.tmpl.html',
+            controller: 'TitlesGenreController',
+            controllerAs: 'titlesGenreVm'
         })
-
-        // .when('/titles/findTitlesByTypeAndGenre/movie/adventure', {
-        //     templateUrl: 'app/views/movies-genre.tmpl.html',
-        //     controller: 'TitleController',
-        //     controllerAs: 'titlesVm'
-        // })
-        // .when('/titles/findTitlesByTypeAndGenre/movie/fantasy', {
-        //     templateUrl: 'app/views/movies-genre.tmpl.html',
-        //     controller: 'TitleController',
-        //     controllerAs: 'titlesVm'
-        // })
-        // .when('/titles/findTitlesByTypeAndGenre/movie/sci-fi' , {
-        //     templateUrl: 'app/views/movies-genre.tmpl.html',
-        //     controller: 'TitleController',
-        //     controllerAs: 'titlesVm'
-        //
-        // })
+        .when('/titles/sortTitlesByTypeAndYear/movie', {
+            templateUrl: 'app/views/sortMoviesByYear.tmpl.html',
+            controller: 'SortByYearController',
+            controllerAs: 'sortByYearVm'
+        })
+        .when('/titles/sortTitlesByTypeAndYear/series', {
+            templateUrl: 'app/views/sortSeriesByYear.tmpl.html',
+            controller: 'SortByYearController',
+            controllerAs: 'sortByYearVm'
+        })
+        .when('/logOut', {
+            templateUrl: 'app/views/logOut.tmpl.html',
+            controller: 'SortByYearController',
+            controllerAs: 'sortByYearVm'
+        })
         // .otherwise({
     //         redirectTo: '/users'
     //     })

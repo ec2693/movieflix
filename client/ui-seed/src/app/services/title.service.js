@@ -16,6 +16,8 @@
          self.getTitleById = getTitleById;
          self.getMoviesByGenre = getMoviesByGenre;
          self.getSeriesByGenre = getSeriesByGenre;
+         self.sortMoviesByYear = sortMoviesByYear;
+         self.sortSeriesByYear = sortSeriesByYear;
          self.getAverageRatingForTitle = getAverageRatingForTitle;
          self.createTitle = createTitle;
          self.deleteTitle = deleteTitle;
@@ -49,6 +51,17 @@
             return $http.get(CONFIG.API_HOST + '/titles/findTitlesByTypeAndGenre/series/' + genreType)
                 .then(successFn, errorFn);
         }
+
+        function sortMoviesByYear() {
+            return $http.get(CONFIG.API_HOST + '/titles/sortTitlesByTypeAndYear/movie')
+                .then(successFn, errorFn);
+        }
+
+        function sortSeriesByYear() {
+            return $http.get(CONFIG.API_HOST + '/titles/sortTitlesByTypeAndYear/series')
+                .then(successFn, errorFn);
+        }
+
 
         function getAverageRatingForTitle(id) {
             return $http.get(CONFIG.API_HOST + '/titles/getAverageRatingForTitle/' + id)

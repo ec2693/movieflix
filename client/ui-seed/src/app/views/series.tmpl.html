@@ -30,7 +30,7 @@
         </div>
         <div class = "col-xs-offset-1 col-xs-1">
             <form name = "dropdown" >
-                <select class="form-control" title = "other" id="other" name = "other"  ng-model="mySelect" ng-change="titlesVm.showMovieGenre(mySelect)">
+                <select class="form-control" title = "other" id="other" name = "other"  ng-model="sSortValue" ng-change="titlesVm.seriesSortValue(sSortValue)">
                     <option value = "year">Year</option>
                     <option value = "ratings">Imdb Ratings</option>
                     <option value = "votes">Imdb Votes</option>
@@ -42,7 +42,7 @@
         <div class = "row" ng-repeat="series in titlesVm.series | filter:titlesVm.searchText | orderBy:titlesVm.sorter.by:titlesVm.sorter.reverse">
             <div class="col-xs-2">
                 <div class = "thumbnail">
-                <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg"/></a>
+                <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = "{{series.poster}}"/></a>
                 </div>
             </div>
             <div class = "col-xs-8">

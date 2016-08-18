@@ -8,9 +8,12 @@
 
     function TitleController(titleService,$location,$routeParams) {
         var titlesVm = this;
+        titlesVm.deleteTitle = deleteTitle;
         titlesVm.showMovieGenre = showMovieGenre;
         titlesVm.showSeriesGenre = showSeriesGenre;
-        titlesVm.deleteTitle = deleteTitle;
+        titlesVm.movieSortValue = movieSortValue;
+        titlesVm.seriesSortValue = seriesSortValue;
+
 
         init();
 
@@ -65,6 +68,21 @@
             console.log('/titles/findTitlesByTypeAndGenre/series/'+ genreType);
             $location.path('/titles/findTitlesByTypeAndGenre/series/'+ genreType);
         }
+
+        function movieSortValue(mSortValue) {
+            if (mSortValue === 'year') {
+                console.log('/titles/sortTitlesByTypeAndYear/movie/' + mSortValue);
+                $location.path('/titles/sortTitlesByTypeAndYear/movie');
+            }
+        }
+
+        function seriesSortValue(sSortValue) {
+            if (sSortValue === 'year') {
+                console.log('/titles/sortTitlesByTypeAndYear/series/' + sSortValue);
+                $location.path('/titles/sortTitlesByTypeAndYear/series');
+            }
+        }
+
 
 
     }
