@@ -10,7 +10,7 @@
         <p id="content">Series</p>
     </div>
     <div>
-        <div class = "row" ng-repeat="series in titlesGenreVm.series">
+        <div class = "row" ng-repeat="series in genreSortVm.series">
             <div class="col-xs-2">
                 <div class = "thumbnail">
                     <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = {{series.poster}}"/></a>

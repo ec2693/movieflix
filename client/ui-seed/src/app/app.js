@@ -68,13 +68,13 @@
         })
         .when('/titles/findTitlesByTypeAndGenre/movie/:genreType', {
             templateUrl: 'app/views/sortMoviesByGenre.tmpl.html',
-            controller: 'TitlesGenreController',
-            controllerAs: 'titlesGenreVm'
+            controller: 'GenreSortController',
+            controllerAs: 'genreSortVm'
         })
         .when('/titles/findTitlesByTypeAndGenre/series/:genreType', {
             templateUrl: 'app/views/sortSeriesByGenre.tmpl.html',
-            controller: 'TitlesGenreController',
-            controllerAs: 'titlesGenreVm'
+            controller: 'GenreSortController',
+            controllerAs: 'genreSortVm'
         })
         .when('/titles/sortTitlesByTypeAndYear/movie', {
             templateUrl: 'app/views/sortMoviesByYear.tmpl.html',

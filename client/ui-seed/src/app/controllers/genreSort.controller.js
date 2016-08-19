@@ -3,12 +3,12 @@
 
     angular
         .module('movieflix')
-        .controller('TitlesGenreController', TitlesGenreController);
+        .controller('GenreSortController', GenreSortController);
 
-    TitlesGenreController.$inject = ['titleService','$routeParams'];
+    GenreSortController.$inject = ['titleService','$routeParams'];
 
-    function TitlesGenreController(titleService, $routeParams) {
-        var titlesGenreVm = this;
+    function GenreSortController(titleService, $routeParams) {
+        var genreSortVm = this;
 
         init();
 
@@ -17,7 +17,7 @@
             titleService
                 .getMoviesByGenre($routeParams.genreType)
                 .then(function(titles){
-                    titlesGenreVm.movies = titles;
+                    genreSortVm.movies = titles;
                 }, function(error) {
                     console.log(error);
                 });
@@ -25,7 +25,7 @@
             titleService
                 .getSeriesByGenre($routeParams.genreType)
                 .then(function(titles){
-                    titlesGenreVm.series = titles;
+                    genreSortVm.series = titles;
                 }, function(error) {
                     console.log(error);
                 });
