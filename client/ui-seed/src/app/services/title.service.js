@@ -11,19 +11,28 @@
         var self = this;
 
          self.getAllTitles = getAllTitles;
+         self.getTitleById = getTitleById;
          self.getMovies = getMovies;
          self.getSeries = getSeries;
-         self.getTitleById = getTitleById;
          self.getMoviesByGenre = getMoviesByGenre;
          self.getSeriesByGenre = getSeriesByGenre;
          self.sortMoviesByYear = sortMoviesByYear;
          self.sortSeriesByYear = sortSeriesByYear;
+         self.sortMoviesByImdbRatings = sortMoviesByImdbRatings;
+         self.sortSeriesByImdbRatings = sortSeriesByImdbRatings;
+         self.sortMoviesByImdbVotes = sortMoviesByImdbVotes;
+         self.sortSeriesByImdbVotes = sortSeriesByImdbVotes;
          self.getAverageRatingForTitle = getAverageRatingForTitle;
          self.createTitle = createTitle;
          self.deleteTitle = deleteTitle;
 
         function getAllTitles(){
             return $http.get(CONFIG.API_HOST + '/titles')
+                .then(successFn, errorFn);
+        }
+
+        function getTitleById(id) {
+            return $http.get(CONFIG.API_HOST + '/titles/findTitleById/' + id)
                 .then(successFn, errorFn);
         }
 
@@ -34,11 +43,6 @@
 
         function getSeries() {
             return $http.get(CONFIG.API_HOST + '/titles/findTitlesByType/series')
-                .then(successFn, errorFn);
-        }
-
-        function getTitleById(id) {
-            return $http.get(CONFIG.API_HOST + '/titles/findTitleById/' + id)
                 .then(successFn, errorFn);
         }
 
@@ -62,6 +66,25 @@
                 .then(successFn, errorFn);
         }
 
+        function sortMoviesByImdbRatings() {
+            return $http.get(CONFIG.API_HOST + '/titles/sortTitlesByTypeAndImdbRatings/movie')
+                .then(successFn, errorFn);
+        }
+
+        function sortSeriesByImdbRatings() {
+            return $http.get(CONFIG.API_HOST + '/titles/sortTitlesByTypeAndImdbRatings/series')
+                .then(successFn, errorFn);
+        }
+
+        function sortMoviesByImdbVotes() {
+            return $http.get(CONFIG.API_HOST + '/titles/sortTitlesByTypeAndImdbVotes/movie')
+                .then(successFn, errorFn);
+        }
+
+        function sortSeriesByImdbVotes() {
+            return $http.get(CONFIG.API_HOST + '/titles/sortTitlesByTypeAndImdbVotes/series')
+                .then(successFn, errorFn);
+        }
 
         function getAverageRatingForTitle(id) {
             return $http.get(CONFIG.API_HOST + '/titles/getAverageRatingForTitle/' + id)

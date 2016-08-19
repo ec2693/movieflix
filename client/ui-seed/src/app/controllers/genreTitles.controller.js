@@ -5,9 +5,9 @@
         .module('movieflix')
         .controller('TitlesGenreController', TitlesGenreController);
 
-    TitlesGenreController.$inject = ['titleService', '$location','$routeParams'];
+    TitlesGenreController.$inject = ['titleService','$routeParams'];
 
-    function TitlesGenreController(titleService, $location,$routeParams) {
+    function TitlesGenreController(titleService, $routeParams) {
         var titlesGenreVm = this;
 
         init();

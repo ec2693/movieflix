@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Title Details</title>
 </head>
 <body>
 <div class = "container">
@@ -20,8 +20,15 @@
                 <dd>{{titleDetailVm.movie.title}}<br/><br/></dd>
                 <dt>ReleasedDate</dt>
                 <dd>{{titleDetailVm.movie.released}}<br/><br/></dd>
+                <dt>Year</dt>
+                <dd>{{titleDetailVm.movie.year}}<br/><br/></dd>
                 <dt>Runtime</dt>
                 <dd>{{titleDetailVm.movie.runtime}}<br/><br/></dd>
+                <dt>Genre Type</dt>
+                <div class = "cast" ng-repeat="genre in titleDetailVm.movie.genre">
+                    <dd>{{genre.genreType}}</dd>
+                </div>
+                <br/>
                 <dt>Director</dt>
                 <div class = "cast" ng-repeat="cast in titleDetailVm.cast| filter: { castType: 'director' }">
                   <dd>{{cast.castName}}</dd>

@@ -2,24 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sort Series By Imdb Ratings</title>
 </head>
 <body>
 <div class="container">
     <div class = "header">
-        <p id="content">Series</p>
+        <p id="content">Movies</p>
     </div>
     <div>
-        <div class = "row" ng-repeat="series in titlesGenreVm.series">
+        <div class = "row" ng-repeat="series in sortVm.seriesByRatings">
             <div class="col-xs-2">
                 <div class = "thumbnail">
-                    <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = {{series.poster}}"/></a>
+                    <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = "{{series.poster}}"/></a>
                 </div>
             </div>
             <div class = "col-xs-8">
                 <h3>{{series.title}}</h3>
                 <p class = "plot"><strong>Plot:</strong>{{series.plot}}</p>
                 <p class = "plot"><strong>Metascore:</strong>{{series.metascore}}/100</p>
+                <p class = "plot"><strong>ImdbRatings: </strong>{{series.imdb.imdbRating}}</p>
+                <p class = "plot"><strong>ImdbVotes: </strong>{{series.imdb.imdbVotes}}</p>
                 <a href = "#/titles/findTitleById/{{series.id}}">More..</a>
             </div>
         </div>

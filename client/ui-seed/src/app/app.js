@@ -16,7 +16,7 @@
             controllerAs: 'addUserVm'
         })
         .when('/users/auth/user', {
-            templateUrl: 'app/views/auth-user.tmpl.html',
+            templateUrl: 'app/views/authUser.tmpl.html',
             controller: 'AuthUserController',
             controllerAs: 'authUserVm'
         })
@@ -67,29 +67,49 @@
             controllerAs: 'addReviewVm'
         })
         .when('/titles/findTitlesByTypeAndGenre/movie/:genreType', {
-            templateUrl: 'app/views/genreMovies.tmpl.html',
+            templateUrl: 'app/views/sortMoviesByGenre.tmpl.html',
             controller: 'TitlesGenreController',
             controllerAs: 'titlesGenreVm'
         })
         .when('/titles/findTitlesByTypeAndGenre/series/:genreType', {
-            templateUrl: 'app/views/genreSeries.tmpl.html',
+            templateUrl: 'app/views/sortSeriesByGenre.tmpl.html',
             controller: 'TitlesGenreController',
             controllerAs: 'titlesGenreVm'
         })
         .when('/titles/sortTitlesByTypeAndYear/movie', {
             templateUrl: 'app/views/sortMoviesByYear.tmpl.html',
-            controller: 'SortByYearController',
-            controllerAs: 'sortByYearVm'
+            controller: 'SortController',
+            controllerAs: 'sortVm'
         })
         .when('/titles/sortTitlesByTypeAndYear/series', {
             templateUrl: 'app/views/sortSeriesByYear.tmpl.html',
-            controller: 'SortByYearController',
-            controllerAs: 'sortByYearVm'
+            controller: 'SortController',
+            controllerAs: 'sortVm'
+        })
+        .when('/titles/sortTitlesByTypeAndImdbRatings/movie', {
+            templateUrl: 'app/views/sortMoviesByImdbRatings.tmpl.html',
+            controller: 'SortController',
+            controllerAs: 'sortVm'
+        })
+        .when('/titles/sortTitlesByTypeAndImdbRatings/series', {
+            templateUrl: 'app/views/sortSeriesByImdbRatings.tmpl.html',
+            controller: 'SortController',
+            controllerAs: 'sortVm'
+        })
+        .when('/titles/sortTitlesByTypeAndImdbVotes/movie', {
+            templateUrl: 'app/views/sortMoviesByImdbVotes.tmpl.html',
+            controller: 'SortController',
+            controllerAs: 'sortVm'
+        })
+        .when('/titles/sortTitlesByTypeAndImdbVotes/series', {
+            templateUrl: 'app/views/sortSeriesByImdbVotes.tmpl.html',
+            controller: 'SortController',
+            controllerAs: 'sortVm'
         })
         .when('/logOut', {
             templateUrl: 'app/views/logOut.tmpl.html',
-            controller: 'SortByYearController',
-            controllerAs: 'sortByYearVm'
+            controller: 'SortController',
+            controllerAs: 'sortVm'
         })
         // .otherwise({
     //         redirectTo: '/users'

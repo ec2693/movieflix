@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Movie</title>
 </head>
 <body>
 <div class="container">
@@ -49,6 +49,8 @@
                 <h3>{{movie.title}}</h3>
                 <p class = "plot"><strong>Plot:</strong>{{movie.plot}}</p>
                 <p class = "plot"><strong>Metascore:</strong>{{movie.metascore}}/100</p>
+                <p class = "plot"><strong>ImdbRatings: </strong>{{movie.imdb.imdbRating}}</p>
+                <p class = "plot"><strong>ImdbVotes: </strong>{{movie.imdb.imdbVotes}}</p>
                 <a ng-href = "#/titles/findTitleById/{{movie.id}}">More..</a>
             </div>
         </div>

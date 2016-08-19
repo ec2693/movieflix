@@ -20,7 +20,6 @@
         }
 
         function addReview() {
-            // console.log($routeParams.id);
             titleService
                 .getTitleById($routeParams.id)
                 .then(function(data) {

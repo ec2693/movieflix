@@ -34,14 +34,12 @@
                 .then(successFn, errorFn);
         }
 
-
-
         function successFn(response) {
-            return response.data; //RESOLVE
+            return response.data;
         }
 
         function errorFn(response) {
-            return $q.reject(error.status); //REJECT
+            return $q.reject('ERROR: ' + response.statusText);
         }
     }
 })();

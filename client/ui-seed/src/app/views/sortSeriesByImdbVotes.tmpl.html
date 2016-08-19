@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sort Series By Year</title>
+    <title>Sort Series By Imdb Votes</title>
 </head>
 <body>
 <div class="container">
     <div class = "header">
-        <p id="content">Series</p>
+        <p id="content">Movies</p>
     </div>
     <div>
-        <div class = "row" ng-repeat="series in sortVm.seriesByYear">
+        <div class = "row" ng-repeat="series in sortVm.seriesByVotes">
             <div class="col-xs-2">
                 <div class = "thumbnail">
                     <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = "{{series.poster}}"/></a>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sort Movies By Year</title>
+    <title>Sort Movies By Genre</title>
 </head>
 <body>
 <div class="container">
@@ -10,10 +10,10 @@
         <p id="content">Movies</p>
     </div>
     <div>
-        <div class = "row" ng-repeat="movie in sortVm.moviesByYear">
+        <div class = "row" ng-repeat="movie in titlesGenreVm.movies">
             <div class="col-xs-2">
                 <div class = "thumbnail">
-                    <a href = "#/titles/findTitleById/{{movie.id}}"><img class = "img-responsive" ng-src = "{{movie.poster}}"/></a>
+                <a href = "#/titles/findTitleById/{{movie.id}}"><img class = "img-responsive" ng-src = "{{movie.poster}}"/></a>
                 </div>
             </div>
             <div class = "col-xs-8">

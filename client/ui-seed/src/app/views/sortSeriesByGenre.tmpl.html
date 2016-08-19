@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sort Series By Year</title>
+    <title>Sort Series By Genre</title>
 </head>
 <body>
 <div class="container">
@@ -10,10 +10,10 @@
         <p id="content">Series</p>
     </div>
     <div>
-        <div class = "row" ng-repeat="series in sortVm.seriesByYear">
+        <div class = "row" ng-repeat="series in titlesGenreVm.series">
             <div class="col-xs-2">
                 <div class = "thumbnail">
-                    <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = "{{series.poster}}"/></a>
+                    <a href = "#/titles/findTitleById/{{series.id}}"><img class = "img-responsive" ng-src = {{series.poster}}"/></a>
                 </div>
             </div>
             <div class = "col-xs-8">

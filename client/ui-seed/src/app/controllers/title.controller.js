@@ -4,9 +4,9 @@
     angular.module('movieflix')
         .controller('TitleController', TitleController);
 
-    TitleController.$inject = ['titleService','$location','$routeParams'];
+    TitleController.$inject = ['titleService','$location'];
 
-    function TitleController(titleService,$location,$routeParams) {
+    function TitleController(titleService,$location) {
         var titlesVm = this;
         titlesVm.deleteTitle = deleteTitle;
         titlesVm.showMovieGenre = showMovieGenre;
@@ -71,15 +71,26 @@
 
         function movieSortValue(mSortValue) {
             if (mSortValue === 'year') {
-                console.log('/titles/sortTitlesByTypeAndYear/movie/' + mSortValue);
                 $location.path('/titles/sortTitlesByTypeAndYear/movie');
             }
+            else if(mSortValue === 'ratings'){
+                $location.path('/titles/sortTitlesByTypeAndImdbRatings/movie');
+            }
+            else{
+                $location.path('/titles/sortTitlesByTypeAndImdbVotes/movie');
+            }
+
         }
 
         function seriesSortValue(sSortValue) {
             if (sSortValue === 'year') {
-                console.log('/titles/sortTitlesByTypeAndYear/series/' + sSortValue);
                 $location.path('/titles/sortTitlesByTypeAndYear/series');
+            }
+            else if(sSortValue === 'ratings'){
+                $location.path('/titles/sortTitlesByTypeAndImdbRatings/series');
+            }
+            else{
+                $location.path('/titles/sortTitlesByTypeAndImdbVotes/series');
             }
         }
 
